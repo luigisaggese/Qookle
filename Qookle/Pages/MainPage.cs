@@ -42,7 +42,9 @@ namespace Qookle.Pages
 
 			var recipeListView = new ListView
 			{
-				ItemTemplate = new DataTemplate(typeof(ImageCell))
+				ItemTemplate = new DataTemplate(typeof(ImageCell)),
+				Rotation=270,
+				RowHeight = 40
 
 			};
 
@@ -53,7 +55,7 @@ namespace Qookle.Pages
 			recipeListView.SetBinding(ListView.ItemsSourceProperty, new Binding("Recipes"));
 			recipeListView.SetBinding(ListView.SelectedItemProperty, new Binding("SelectedRecipe"));
 			recipeListView.ItemTemplate.SetBinding(ImageCell.TextProperty, new Binding("Title"));
-			recipeListView.ItemTemplate.SetBinding(ImageCell.ImageSourceProperty, new Binding("PosterUrl"));
+			recipeListView.ItemTemplate.SetBinding(ImageCell.ImageSourceProperty, new Binding("ImageUrl"));
 			recipeListView.ItemTemplate.SetBinding(ImageCell.DetailProperty, new Binding("Score"));
 		}
 

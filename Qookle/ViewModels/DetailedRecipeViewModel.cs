@@ -21,7 +21,7 @@ namespace Qookle.ViewModels
 		{
 			base.Start();
 
-			if (_model != null) return;
+			//if (_model != null) return;
 
 			Title = _model.Title;
 			Score = 2;

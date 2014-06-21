@@ -95,7 +95,7 @@ namespace Qookle.Pages
 			innerStack.Children.Add(synopsis);
 			innerStack.Children.Add(showOnImdb);
 
-			poster.SetBinding(Image.SourceProperty, new Binding("PosterUrl"));
+			poster.SetBinding(Image.SourceProperty, new Binding("ImageUrl"));
 			title.SetBinding(Label.TextProperty, new Binding("Title"));
 			score.SetBinding(Label.TextProperty, new Binding("Score", stringFormat: "{0} / 10"));
 			runtime.SetBinding(Label.TextProperty, new Binding("Runtime", BindingMode.Default, new MinutesToHoursMinutesValueConverter()));
