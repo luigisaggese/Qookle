@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="QookleApp.MainPage">
+	<ContentPage.Content>
+		<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="10*"/>
+			<RowDefinition Height="50*"/>
+			<RowDefinition Height="50*"/>
+			<RowDefinition Height="50*"/>
+		</Grid.RowDefinitions>
+			<ScrollView Orientation="Vertical">
+				<StackLayout> 
+					<Entry Placeholder="Eneter ingredient" Grid.Row="2"/>
+					<ListView Grid.Row="3"/>
+				</StackLayout>
+			</ScrollView>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>

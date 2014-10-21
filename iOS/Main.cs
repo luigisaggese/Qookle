@@ -5,7 +5,7 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
-namespace Qookle.iOS
+namespace QookleApp.iOS
 {
 	public class Application
 	{
