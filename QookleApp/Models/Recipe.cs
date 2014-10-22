@@ -49,5 +49,9 @@ namespace QookleApp
 			set;
 		}
 
+		public string publisherimage {
+			get{return "http://g.etfv.co/"+published+"?defaulticon=bluepng"; }
+		}
+
 	}
 }

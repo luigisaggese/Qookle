@@ -6,38 +6,66 @@ using System.Windows;
 using Xamarin.Forms;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
+
 namespace QookleApp
 {
 	public class MainPageViewModel:BaseViewModel
 	{
-		public ObservableCollection<string> ListOfIngred {
+		public string TextToSearch {
 			get;
 			set;
 		}
 
+		ObservableCollection<string> searchListOfIngredients;
+		public ObservableCollection<string> SearchListOfIngredients {
+			get {
+				return searchListOfIngredients;
+			}
+			set {
+				searchListOfIngredients = value;
+				OnPropertyChnaged ("SearchListOfIngredients");
+			}
+		}
+
+		ObservableCollection<string> selectedListOfIngredients;
+		public ObservableCollection<string> SelectedListOfIngredients {
+			get {
+				return selectedListOfIngredients;
+			}
+			set {
+				selectedListOfIngredients = value;
+				OnPropertyChnaged ("SelectedListOfIngredients");
+			}
+		}
+
 		public MainPageViewModel ()
 		{
-			SaveCommand = new Command (new Action(()=>{ListOfIngred = new ObservableCollection<string>(); ListOfIngred.Add("pasta"); OnSubmit();}));
+			SaveCommand = new Command (new Action(()=>{OnSubmit();}));
+
 		}
+
 		public Action<IEnumerable<String>> SelectionCompletedAction{ get; set; }
-		//tak??? sho robutu todi vsydu obscollection?
+
+
+
 		void OnSubmit()
 		{
-			//NavigationPage. FU BL9t FU NAHUI
-
-			//TIPA TUT TU VUBRAV INGREDIEBNTUListOfIngred
 			if (SelectionCompletedAction != null)
-				SelectionCompletedAction (ListOfIngred);
-			//AHUENNO
-			//@
-			//TEPER TREBA PIDPUSATUS!
+				SelectionCompletedAction (SelectedListOfIngredients);
 		}
 
-		//je button treba na onclick shob vukonavsia mij metod
 		public Command SaveCommand
 		{
 		    get;
 		    internal set;
 		}
+
+		public Command TextChangedCommand
+		{
+			get;
+			internal set;
+		}
+
+
 	}
 }

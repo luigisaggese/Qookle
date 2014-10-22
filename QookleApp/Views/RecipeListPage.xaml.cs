@@ -29,6 +29,8 @@ namespace QookleApp
 		{
 			InitializeComponent ();
 			this.SetViewModel (new RecipeListPageViewModel (selectedIngredients));
+
+			RecipeList1.ItemTemplate = new DataTemplate (typeof(RecipeListViewCell));
 		}
 	}
 }
