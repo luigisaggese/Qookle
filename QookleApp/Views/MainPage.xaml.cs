@@ -27,7 +27,10 @@ namespace QookleApp
 		public MainPage ()
 		{
 			InitializeComponent ();
+			this.SetViewModel (new MainPageViewModel ());
+			GetCurrentViewModel ().SelectionCompletedAction = new Action<IEnumerable<string>> ((obj) => {
+				Navigation.PushModalAsync (new RecipeListPage (obj));
+			});//VO!
 		}
 	}
 }
-

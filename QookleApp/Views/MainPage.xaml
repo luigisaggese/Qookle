@@ -8,9 +8,10 @@
 			<RowDefinition Height="50*"/>
 			<RowDefinition Height="50*"/>
 		</Grid.RowDefinitions>
-			<ScrollView Orientation="Vertical">
+<Button Text="PRESS ME" Grid.Row="0" Command="{Binding SaveCommand}"/>
+			<ScrollView Orientation="Vertical" Grid.Row="1">
 				<StackLayout> 
-					<Entry Placeholder="Eneter ingredient" Grid.Row="2"/>
+					<Entry Placeholder="Eneter ingredient"/>
 					<ListView Grid.Row="3"/>
 				</StackLayout>
 			</ScrollView>

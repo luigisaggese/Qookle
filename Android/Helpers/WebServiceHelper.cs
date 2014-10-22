@@ -12,24 +12,23 @@ namespace QookleApp.Android
 	{
 		#region IService implementation
 
-		public async System.Threading.Tasks.Task<IEnumerable<Recipe>> GetRecipe ()
+		public async Task<IEnumerable<Recipe>> GetRecipe (IEnumerable<string> parameters,int offsetValue)
 		{
 			try {
-			    Debug.WriteLine ("NA4alo");
-			    var request =
-			     WebRequest.Create ("https://qookle-com.appspot.com/_ah/api/qookle/v1/search?offset=0&search=pasta") as
-			                        HttpWebRequest;//ja she dodam parametru v metod v interfejsi sho+b prujmalo list stringiv, jaki mu peredaemo v rikvest.+ ale n
+			    Debug.WriteLine ("Starting request.");
+
+				var requestString = "https://qookle-com.appspot.com/_ah/api/qookle/v1/search?";
+				requestString+="offset="+offsetValue;
+
+				foreach(var par in parameters){
+					requestString+="&search="+par;
+				}
+
+			    var request = WebRequest.Create (requestString) as HttpWebRequest;
 			    request.Method = "POST";
 			    request.ContentType = "application/json";
-				// chekaj. ale ja tak i ne poniav sho ce za offset ))))
-				//tipa paging 
-				//offset 0 1-10 items
-				//ofste 1 11-20 items poniav. ok // tu vze dodomy hochesh?
-				//ta da
-				//ale tam pizda // ja ba4y))))
 
-				//nakudaj she shos na views. a ja ce dorobly i bydemo valutu dodomy, ja tebe zaberu tam bilja togo sport, jaksho ho4esh
-			    String jsonRes = "";
+				String jsonRes = "";
 
 			    WebResponse responce = await request.GetResponseAsync ().ConfigureAwait (false);
 			    using (var reader = new StreamReader (responce.GetResponseStream ())) {

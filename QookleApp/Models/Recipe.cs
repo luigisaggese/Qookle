@@ -7,7 +7,7 @@ namespace QookleApp
 	{
 
 
-		public int id {
+		public string id {
 			get;
 			set;
 		}
@@ -49,8 +49,5 @@ namespace QookleApp
 			set;
 		}
 
-		public Recipe ()
-		{
-		}
 	}
 }

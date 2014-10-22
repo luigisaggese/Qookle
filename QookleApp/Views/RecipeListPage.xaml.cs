@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
+using System.Collections;
 
 namespace QookleApp
 {	
 	public partial class RecipeListPage : ContentPage, IViewModel<RecipeListPageViewModel>
 	{	
 		#region IViewModel implementation
+
 
 
 		public RecipeListPageViewModel GetCurrentViewModel ()
@@ -23,9 +25,10 @@ namespace QookleApp
 
 		#endregion
 
-		public RecipeListPage ()
+		public RecipeListPage (IEnumerable<string> selectedIngredients)
 		{
 			InitializeComponent ();
+			this.SetViewModel (new RecipeListPageViewModel (selectedIngredients));
 		}
 	}
 }
