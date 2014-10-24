@@ -1,21 +1,35 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="QookleApp.MainPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="QookleApp.MainPage" xmlns:local="clr-namespace:QookleApp;assembly=QookleApp">
 	<ContentPage.Content>
-		<Grid >
+	<ScrollView>
+		<Grid BackgroundColor="White" VerticalOptions="Fill" >
 		<Grid.RowDefinitions>
-			<RowDefinition Height="50"/>
-			<RowDefinition Height="20"/>
-			<RowDefinition Height="50*"/>
-			<RowDefinition Height="50*"/>
+			<RowDefinition Height="60"/>
+			<RowDefinition Height="120"/>
+			<RowDefinition >
+			<RowDefinition.Height>
+			<OnPlatform x:TypeArguments="GridLength">
+      			<OnPlatform.Android>40</OnPlatform.Android>
+    			<OnPlatform.iOS>20</OnPlatform.iOS>
+    		</OnPlatform>
+			</RowDefinition.Height>
+			</RowDefinition>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="1*"/>
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="*"/>
 		</Grid.ColumnDefinitions>
-			<Image Source="MainScreen.png" VerticalOptions="Fill" HorizontalOptions="Fill" Grid.RowSpan="4" Grid.Row="0"/>
-			<Button Text="Get Recipes" Grid.Row="0" Command="{Binding SaveCommand}" Grid.Column="0" />
-			<Entry Placeholder="Inserisci qui gli ingredienti" Grid.Row="1" TextChanged="TextChanged" x:Name="TextEntry"/>
-			<ListView ItemsSource="{Binding SearchListOfIngredients}" Grid.Row="2" ItemTapped="AddItemToResultList"/>
-			<ListView ItemsSource="{Binding SelectedListOfIngredients}" Grid.Row="3" ItemTapped="DeleteItemFromResultList"/>
+			<Image Source="MainScreen.png" VerticalOptions="Fill" HorizontalOptions="Fill" Grid.RowSpan="5" Grid.Row="0"/>
+			<Button Text="Get Recipes" Grid.Row="4" BorderRadius="25" Command="{Binding SaveCommand}" Grid.Column="0" VerticalOptions="End"/>
+			<Entry Placeholder="Inserisci qui gli ingredienti" Grid.Row="2" Text="{Binding TextToSearch}" x:Name="TextEntry"/>
+			<StackLayout Grid.Row="3">
+			<local:WrapLayout x:Name="SelectedIngredients"  Orientation="Horizontal"/>
+			<local:WrapLayout x:Name="IngresdientList"  Orientation="Horizontal"/>
+			</StackLayout>
+			<!---<ListView ItemsSource="{Binding SearchListOfIngredients}" Grid.Row="2" ItemTapped="AddItemToResultList"/>
+			<ListView ItemsSource="{Binding SelectedListOfIngredients}" Grid.Row="3" ItemTapped="DeleteItemFromResultList"/>-->
 		</Grid>
+</ScrollView>
 	</ContentPage.Content>
 </ContentPage>

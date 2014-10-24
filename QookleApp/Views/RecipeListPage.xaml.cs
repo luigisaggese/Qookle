@@ -29,7 +29,9 @@ namespace QookleApp
 		{
 			InitializeComponent ();
 			this.SetViewModel (new RecipeListPageViewModel (selectedIngredients));
-
+			RecipeList1.ItemTapped += (object sender, ItemTappedEventArgs e) => {
+				this.Navigation.PushAsync (new RecipeViewPage (((Recipe)e.Item).id));
+			};
 			RecipeList1.ItemTemplate = new DataTemplate (typeof(RecipeListViewCell));
 		}
 	}

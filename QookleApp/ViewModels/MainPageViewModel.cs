@@ -6,17 +6,24 @@ using System.Windows;
 using Xamarin.Forms;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
-
+using System.Linq;
 namespace QookleApp
 {
 	public class MainPageViewModel:BaseViewModel
 	{
+
+		private string searchText="";
 		public string TextToSearch {
-			get;
-			set;
+			get{return searchText; }
+			set{searchText = value;
+				if (String.IsNullOrWhiteSpace (searchText))
+					SearchListOfIngredients = new ObservableCollection<string> ();
+				else
+					SearchListOfIngredients = new ObservableCollection<string> (IngredientsList.IngredientsFullList.Where (x => x.ToLower ().Contains (value.ToLower ())));
+				OnPropertyChnaged ("TextToSearch");}
 		}
 
-		ObservableCollection<string> searchListOfIngredients;
+		ObservableCollection<string> searchListOfIngredients = new ObservableCollection<string>();
 		public ObservableCollection<string> SearchListOfIngredients {
 			get {
 				return searchListOfIngredients;

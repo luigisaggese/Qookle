@@ -6,11 +6,11 @@ namespace QookleApp
 {
 	class IngredientsList
 	{
-		public ObservableCollection<string> IngredientsFullList;
+		public static List<string> IngredientsFullList;
 
-		public IngredientsList ()
+		static IngredientsList ()
 		{
-			IngredientsFullList = new ObservableCollection<string> ();
+			IngredientsFullList = new List<string> ();
 			IngredientsFullList.Add ("Pasta");
 			IngredientsFullList.Add ("Salt");
 			IngredientsFullList.Add ("Riso");

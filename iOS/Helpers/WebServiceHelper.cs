@@ -9,7 +9,7 @@ using Xamarin.Forms;
 using QookleApp.iOS;
 using System.Diagnostics;
 
-[assembly: Dependency (typeof(WebServiceHelper))]
+[assembly: Dependency(typeof(WebServiceHelper))]
 namespace QookleApp.iOS
 {
 	public class WebServiceHelper:IService

@@ -23,9 +23,12 @@ namespace QookleApp
 
 		#endregion
 
-		public RecipeViewPage ()
+		public RecipeViewPage (String id )
 		{
 			InitializeComponent ();
+			this.SetViewModel (new RecipeViewPageViewModel (id));
+			var d = new WebView ();
+			ContentWebView.Source = GetCurrentViewModel ().WebAddress;
 		}
 	}
 }

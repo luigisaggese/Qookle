@@ -2,7 +2,7 @@
 using System.Linq;
 using Xamarin.Forms;
 
-namespace BeFreeIbiza
+namespace QookleApp
 {
 	/// <summary>
 	/// Simple Layout panel which performs wrapping on the boundaries.

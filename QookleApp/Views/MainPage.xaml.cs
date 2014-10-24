@@ -32,12 +32,22 @@ namespace QookleApp
 			GetCurrentViewModel ().SelectionCompletedAction = new Action<IEnumerable<string>> ((obj) => {
 				Navigation.PushAsync (new RecipeListPage (obj));
 			});
+			this.GetCurrentViewModel ().PropertyChanged += (sender, e) => {
+				if(e.PropertyName=="SearchListOfIngredients")
+				{
+					IngresdientList.Children.Clear();
+					foreach(var val in GetCurrentViewModel().SearchListOfIngredients)
+										IngresdientList.Children.Add (new Button (){ Text = val });
+				}
+			};
+			//SelectedIngredients.Children.Add(new Button(){Text="XuilaYebanya"});
+			//IngresdientList.Children.Add (new Button (){ Text = "Pidor" });
 		}
 
 
 		public void TextChanged(object sender,TextChangedEventArgs t){
 
-
+			/*
 			var lis = new IngredientsList();
 			var resultList = new ObservableCollection<string>();
 			foreach(var l in lis.IngredientsFullList)
@@ -47,13 +57,17 @@ namespace QookleApp
 						if (GetCurrentViewModel ().SelectedListOfIngredients != null) {
 							if (!GetCurrentViewModel ().SelectedListOfIngredients.Contains (l))
 								resultList.Add (l);
+							SelectedIngredients.Children.Add(new Button(){Text=l});
+
 						} else {
 							resultList.Add (l);
+							SelectedIngredients.Children.Add(new Button(){Text=l});
+
 						}
 					}
 				}
 			}
-			GetCurrentViewModel().SearchListOfIngredients = resultList;
+			GetCurrentViewModel().SearchListOfIngredients = resultList;*/
 		}
 
 		public void AddItemToResultList(object sender, ItemTappedEventArgs t)
@@ -63,7 +77,7 @@ namespace QookleApp
 			if(oldList!=null)
 			if (oldList.Count > 0) {
 				foreach (var item in oldList) {
-
+					IngresdientList.Children.Add (new Button (){ Text = item });
 					list.Add (item);
 				}
 			}
