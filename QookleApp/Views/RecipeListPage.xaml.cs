@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Xamarin.Forms;
 using System.Collections;
+using System.Linq;
 
 namespace QookleApp
 {	
@@ -29,10 +30,31 @@ namespace QookleApp
 		{
 			InitializeComponent ();
 			this.SetViewModel (new RecipeListPageViewModel (selectedIngredients));
-			RecipeList1.ItemTapped += (object sender, ItemTappedEventArgs e) => {
-				this.Navigation.PushAsync (new RecipeViewPage (((Recipe)e.Item).id));
+			RecipeList1.ItemTapped += (object sender, ItemTappedEventArgs e) => 
+			{
+				this.Navigation.PushAsync(new RecipeDetailedPage (((Recipe)e.Item).id));
+
+				//this.Navigation.PushAsync(new RecipeViewPage (((Recipe)e.Item).id));
 			};
-			RecipeList1.ItemTemplate = new DataTemplate (typeof(RecipeListViewCell));
+
+			this.GetCurrentViewModel ().PropertyChanged += (sender, e) => 
+			{
+				if(e.PropertyName=="RecipesList")
+				{
+					if(!GetCurrentViewModel ().RecipesList.Any())
+					{
+						DisplayAlert ("Ohhh(", "There is no recipes", "Ok");
+						Navigation.PopAsync();
+					}
+					else
+					{
+						RecipeList1.ItemTemplate = new DataTemplate (typeof(RecipeListViewCell));
+					}
+				}
+
+			};
+
+
 		}
 	}
 }

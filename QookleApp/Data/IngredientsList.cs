@@ -19,7 +19,18 @@ namespace QookleApp
 			IngredientsFullList.Add ("Oca");
 			IngredientsFullList.Add ("Okra");
 			IngredientsFullList.Add ("Olio");
-
+			IngredientsFullList.AddRange(
+			
+			new[] {	"Lumache"
+					,"Gamberi"
+					,"Funghi misti con porcini"
+					,"Zucchine piccole"
+					,"Zafferano"
+					,"Aglio"
+					,"DermO"
+					,"Erba cipollina"
+					,"Olio extravergine di oliva"
+					,"Sale"});
 		}
 	}
 }

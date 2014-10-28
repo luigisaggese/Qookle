@@ -9,14 +9,14 @@ namespace QookleApp
 
 
 
-		IEnumerable<Recipe> recipesLis;
-		public IEnumerable<Recipe> RecipesLis {
+		IEnumerable<Recipe> recipesList = new List<Recipe>();
+		public IEnumerable<Recipe> RecipesList {
 			get {
-				return recipesLis;
+				return recipesList;
 			}
 			set {
-				recipesLis = value;
-				OnPropertyChnaged ("RecipesLis");
+				recipesList = value;
+				OnPropertyChnaged ("RecipesList");
 			}
 		}
 
@@ -29,7 +29,7 @@ namespace QookleApp
 
 		public async void getresult(IEnumerable<string> selectedIngredients){
 			var recipesListfull = await ServiceHelper.GetRecipe (selectedIngredients);
-			RecipesLis = recipesListfull.items;
+			RecipesList = recipesListfull.items;
 		}
 
 	}

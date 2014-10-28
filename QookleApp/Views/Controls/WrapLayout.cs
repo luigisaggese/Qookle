@@ -67,7 +67,6 @@ namespace QookleApp
 			return Orientation == StackOrientation.Vertical 
 				? DoVerticalMeasure(internalWidth, internalHeight) 
 					: DoHorizontalMeasure(internalWidth, internalHeight);
-
 		}
 
 		/// <summary>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Xamarin.Forms;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace QookleApp
 {	
@@ -9,6 +10,43 @@ namespace QookleApp
 	{
 		#region IViewModel implementation
 
+		MainPageViewModel ViewModel; 
+
+		// This will be called whenever the list changes.
+		private void SearchTapped(object sender, EventArgs e) 
+		{
+			ViewModel.SelectNewIngredient((sender as SearchedIngredientCellView).BindingContext as string);
+			
+			//Console.WriteLine("This is called when the event fires.");
+		}
+
+		private void SelectedTapped(object sender, EventArgs e) 
+		{
+			ViewModel.RemoveIngredient ((sender as SelectedIngredientCellView).BindingContext as string);
+			//Console.WriteLine("This is called when the event fires.");
+		}
+
+		void ResetSelectedList()
+		{
+			SelectedIngredientsList.Children.Clear();
+			foreach(var val in ViewModel.SelectedListOfIngredients)
+			{
+				var item = new SelectedIngredientCellView(this){ BindingContext = val };
+				item.Changed+=SelectedTapped;
+				SelectedIngredientsList.Children.Add (item);
+			}
+		}
+
+		void ResetSearchedList()
+		{
+			SearchedIngredientsList.Children.Clear();
+			foreach(var val in ViewModel.SearchListOfIngredients)
+			{
+				var item = new SearchedIngredientCellView(this){ BindingContext = val };
+				item.Changed+=SearchTapped;
+				SearchedIngredientsList.Children.Add (item);
+			}
+		}
 
 		public MainPageViewModel GetCurrentViewModel ()
 		{
@@ -21,86 +59,52 @@ namespace QookleApp
 			BindingContext = viewModel;
 		}
 
-
 		#endregion
 
 	
 		public MainPage ()
 		{
 			InitializeComponent ();
-			this.SetViewModel (new MainPageViewModel ());
-			GetCurrentViewModel ().SelectionCompletedAction = new Action<IEnumerable<string>> ((obj) => {
+			/*
+			TextEntry.Focused += (sender, e) => {
+				FacebookImage.HeightRequest = 0;
+				HeaderImage.HeightRequest = 0;
+			};
+			TextEntry.Unfocused += (sender, e) => {
+				FacebookImage.HeightRequest = 60;
+				HeaderImage.HeightRequest = 120;
+			};*/
+
+			var tapGestureRecognizer = new TapGestureRecognizer ();
+			tapGestureRecognizer.Tapped += (s, e) => {
+				if (ViewModel.SelectedListOfIngredients.Any ())
+					ViewModel.OnSubmit();
+				else
+					DisplayAlert ("Ohhh", "Select something", "Ok");
+			};
+
+			QookButton.GestureRecognizers.Add (tapGestureRecognizer);
+
+			ViewModel = new MainPageViewModel ();
+			this.SetViewModel (ViewModel);
+
+			GetCurrentViewModel ().SelectionCompletedAction = new Action<IEnumerable<string>> ((obj) => 
+			{
 				Navigation.PushAsync (new RecipeListPage (obj));
 			});
-			this.GetCurrentViewModel ().PropertyChanged += (sender, e) => {
+
+			this.GetCurrentViewModel ().PropertyChanged += (sender, e) => 
+			{
 				if(e.PropertyName=="SearchListOfIngredients")
 				{
-					IngresdientList.Children.Clear();
-					foreach(var val in GetCurrentViewModel().SearchListOfIngredients)
-										IngresdientList.Children.Add (new Button (){ Text = val });
+					ResetSearchedList();
+				}
+				if(e.PropertyName=="SelectedListOfIngredients")
+				{
+					ResetSelectedList();
 				}
 			};
-			//SelectedIngredients.Children.Add(new Button(){Text="XuilaYebanya"});
-			//IngresdientList.Children.Add (new Button (){ Text = "Pidor" });
 		}
 
-
-		public void TextChanged(object sender,TextChangedEventArgs t){
-
-			/*
-			var lis = new IngredientsList();
-			var resultList = new ObservableCollection<string>();
-			foreach(var l in lis.IngredientsFullList)
-			{
-				if (t.NewTextValue != "") {
-					if (l.ToLower().Contains (t.NewTextValue.ToLower())) {
-						if (GetCurrentViewModel ().SelectedListOfIngredients != null) {
-							if (!GetCurrentViewModel ().SelectedListOfIngredients.Contains (l))
-								resultList.Add (l);
-							SelectedIngredients.Children.Add(new Button(){Text=l});
-
-						} else {
-							resultList.Add (l);
-							SelectedIngredients.Children.Add(new Button(){Text=l});
-
-						}
-					}
-				}
-			}
-			GetCurrentViewModel().SearchListOfIngredients = resultList;*/
-		}
-
-		public void AddItemToResultList(object sender, ItemTappedEventArgs t)
-		{
-			var list = new ObservableCollection<string> ();
-			var oldList = GetCurrentViewModel ().SelectedListOfIngredients;
-			if(oldList!=null)
-			if (oldList.Count > 0) {
-				foreach (var item in oldList) {
-					IngresdientList.Children.Add (new Button (){ Text = item });
-					list.Add (item);
-				}
-			}
-
-			var s = (string)t.Item;
-			list.Add (s);
-
-			GetCurrentViewModel ().SelectedListOfIngredients = list;
-			this.TextEntry.Text = "";
-		}
-
-		public void DeleteItemFromResultList(object sender, ItemTappedEventArgs t)
-		{
-			var list = new ObservableCollection<string> ();
-			var oldList = GetCurrentViewModel ().SelectedListOfIngredients;
-			if(oldList!=null)
-			if (oldList.Count > 0) {
-				foreach (var item in oldList) {
-					if(item!=(string)t.Item)
-					list.Add (item);
-				}
-			}
-			GetCurrentViewModel ().SelectedListOfIngredients = list;
-		}
 	}
 }

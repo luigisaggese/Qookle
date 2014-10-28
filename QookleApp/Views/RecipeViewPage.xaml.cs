@@ -26,9 +26,14 @@ namespace QookleApp
 		public RecipeViewPage (String id )
 		{
 			InitializeComponent ();
-			this.SetViewModel (new RecipeViewPageViewModel (id));
-			var d = new WebView ();
-			ContentWebView.Source = GetCurrentViewModel ().WebAddress;
+			this.SetViewModel(new RecipeViewPageViewModel (id));
+
+			if (string.IsNullOrWhiteSpace (id)) {
+				//message
+			} else {
+				ContentWebView.Source = GetCurrentViewModel().WebAddress;
+			}
+
 		}
 	}
 }

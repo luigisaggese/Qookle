@@ -55,6 +55,19 @@
       <DependentUpon>RecipeListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data\IngredientsList.cs" />
+    <Compile Include="Views\Controls\IngridientCellView.xaml.cs">
+      <DependentUpon>SelectedIngredientCellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\SearchedIngredientCellView.xaml.cs">
+      <DependentUpon>SearchedIngredientCellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RecipeDetailedPage.xaml.cs">
+      <DependentUpon>RecipeDetailedPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\RoundedButton.cs" />
+    <Compile Include="Views\LoginFacebookPage.xaml.cs">
+      <DependentUpon>LoginFacebookPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.2.3.6257\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.2.3.6257\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />
@@ -77,6 +90,18 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Controls\RecipeListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Controls\SearchedIngredientCellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Controls\SelectedIngredientCellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RecipeDetailedPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoginFacebookPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>

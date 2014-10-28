@@ -11,51 +11,78 @@ namespace QookleApp
 {
 	public class MainPageViewModel:BaseViewModel
 	{
-
-		private string searchText="";
-		public string TextToSearch {
-			get{return searchText; }
-			set{searchText = value;
-				if (String.IsNullOrWhiteSpace (searchText))
+		private string _searchText="";
+		public string TextToSearch 
+		{
+			get
+			{
+				return _searchText; 
+			}
+			set
+			{
+				_searchText = value;
+				if (String.IsNullOrWhiteSpace (_searchText))
 					SearchListOfIngredients = new ObservableCollection<string> ();
 				else
-					SearchListOfIngredients = new ObservableCollection<string> (IngredientsList.IngredientsFullList.Where (x => x.ToLower ().Contains (value.ToLower ())));
-				OnPropertyChnaged ("TextToSearch");}
+					SearchListOfIngredients = new ObservableCollection<string>
+						(IngredientsList.IngredientsFullList.Except(SelectedListOfIngredients).Where (x => x.ToLower().StartsWith(value.ToLower ())).Take(8));
+				OnPropertyChnaged ("TextToSearch");
+			}
 		}
 
-		ObservableCollection<string> searchListOfIngredients = new ObservableCollection<string>();
-		public ObservableCollection<string> SearchListOfIngredients {
-			get {
-				return searchListOfIngredients;
+		ObservableCollection<string> _searchListOfIngredients = new ObservableCollection<string>();
+		public ObservableCollection<string> SearchListOfIngredients 
+		{
+			get 
+			{
+				return _searchListOfIngredients;
 			}
-			set {
-				searchListOfIngredients = value;
+			set 
+			{
+				_searchListOfIngredients = value;
 				OnPropertyChnaged ("SearchListOfIngredients");
 			}
 		}
 
-		ObservableCollection<string> selectedListOfIngredients;
-		public ObservableCollection<string> SelectedListOfIngredients {
-			get {
-				return selectedListOfIngredients;
+		ObservableCollection<string> _selectedListOfIngredients = new ObservableCollection<string>();
+		public ObservableCollection<string> SelectedListOfIngredients 
+		{
+			get 
+			{
+				return _selectedListOfIngredients;
 			}
-			set {
-				selectedListOfIngredients = value;
+			set 
+			{
+				_selectedListOfIngredients = value;
 				OnPropertyChnaged ("SelectedListOfIngredients");
 			}
 		}
 
-		public MainPageViewModel ()
+		public void SelectNewIngredient(string ingredient)
 		{
-			SaveCommand = new Command (new Action(()=>{OnSubmit();}));
+			SelectedListOfIngredients.Add (ingredient);
+			SearchListOfIngredients.Remove (ingredient);
 
+			TextToSearch = "";
+			OnPropertyChnaged ("SelectedListOfIngredients");
+		}
+
+		public void RemoveIngredient(string ingredient)
+		{
+			SelectedListOfIngredients.Remove (ingredient);
+
+			OnPropertyChnaged ("SelectedListOfIngredients");
+		}
+
+
+		public MainPageViewModel()
+		{
+			SaveCommand = new Command(OnSubmit);
 		}
 
 		public Action<IEnumerable<String>> SelectionCompletedAction{ get; set; }
 
-
-
-		void OnSubmit()
+		public void OnSubmit()
 		{
 			if (SelectionCompletedAction != null)
 				SelectionCompletedAction (SelectedListOfIngredients);

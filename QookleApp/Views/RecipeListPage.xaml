@@ -6,8 +6,7 @@
 				<RowDefinition Height="60*"/>
 				<RowDefinition Height="0"/>
 			</Grid.RowDefinitions>
-			<ListView Grid.Row="0" ItemsSource="{Binding RecipesLis}" x:Name="RecipeList1" RowHeight="240"/>
-
+			<ListView Grid.Row="0" ItemsSource="{Binding RecipesList}" x:Name="RecipeList1" RowHeight="240"/>
 		</Grid>
 	</ContentPage.Content>
 </ContentPage>
