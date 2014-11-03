@@ -1,21 +1,27 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="QookleApp.RecipeListView">
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="QookleApp.RecipeListView" xmlns:local="clr-namespace:QookleApp;assembly=QookleApp">
 	<ContentView.Content>
 	<Grid>
 		<Grid.RowDefinitions>
-			<RowDefinition Height="10"/>
-			<RowDefinition Height="10"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
 			<RowDefinition Height="200"/>
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="40"/>
 			<ColumnDefinition Width="*"/>
 		</Grid.ColumnDefinitions>
+		<Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="Fill" VerticalOptions="Fill">	
+			<local:BorderedImage Source="Pic100.png" Aspect="Fill" HeightRequest="40" WidthRequest="40"/>		
+		
+			<local:RoundedImage Source="{Binding publisherimage}" Aspect="Fill" HorizontalOptions="Center"  VerticalOptions="Center"/>		
+		</Grid>
 
-		<Image Grid.Column="0" Grid.Row="0" Source="{Binding publisherimage}" Grid.RowSpan="2"/>
 		<Label Text="{Binding title}" HorizontalOptions="Start" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" Font="Micro"/>
-		<Label Text="{Binding publisher}" HorizontalOptions="Start" TextColor="Blue" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" Font="Micro"/>
-		<Image Source="{Binding img}" Grid.Row="2" HorizontalOptions="Fill" Grid.ColumnSpan="2" Grid.Column="0"/>
+		<Label Text="{Binding publisher}" HorizontalOptions="Start" TextColor="#00A2FF" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" Font="Micro"/>
+		<StackLayout Grid.Row="2" Grid.Column="0"  Grid.ColumnSpan="2" Padding="10, 0, 10, 0">
+			<Image Source="{Binding img}" HorizontalOptions="Fill" />
+		</StackLayout>
 	</Grid>
 	</ContentView.Content>
 </ContentView>

@@ -45,6 +45,9 @@
     <Reference Include="FormsViewGroup">
       <HintPath>..\packages\Xamarin.Forms.1.2.3.6257\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
     </Reference>
+    <Reference Include="Xamarin.Auth.Android">
+      <HintPath>..\Components\xamarin.auth-1.2.2\lib\android\Xamarin.Auth.Android.dll</HintPath>
+    </Reference>
     <Reference Include="Xamarin.Forms.Core">
       <HintPath>..\packages\Xamarin.Forms.1.2.3.6257\lib\MonoAndroid10\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
@@ -77,6 +80,9 @@
     <Compile Include="Helpers\WebServiceHelper.cs" />
     <Compile Include="Renderers\CircelButtonRenderer.cs" />
     <Compile Include="Renderers\LoginFacebookPageRenderer.cs" />
+    <Compile Include="Helpers\FaceBookAccount.cs" />
+    <Compile Include="Renderers\BorderedImageRenderer.cs" />
+    <Compile Include="SplashScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -96,13 +102,14 @@
     <AndroidResource Include="Resources\drawable\Button.jpg" />
     <AndroidResource Include="Resources\drawable\Qookle.jpg" />
     <AndroidResource Include="Resources\drawable\Splash.jpg" />
-    <AndroidResource Include="Resources\drawable\StartScreen.jpg" />
+    <AndroidResource Include="Resources\drawable\BackOpacity.jpg" />
+    <AndroidResource Include="Resources\drawable\StartScreen.png" />
+    <AndroidResource Include="Resources\drawable\StarScreen.jpg" />
+    <AndroidResource Include="Resources\drawable\SplashScreen.xml" />
+    <AndroidResource Include="Resources\drawable\Pic100.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.2.3.6257\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.2.3.6257\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />
   <Import Project="..\packages\xamstore-xamarin.auth.1.2.2\build\monoandroid\xamstore-xamarin.auth.props" Condition="Exists('..\packages\xamstore-xamarin.auth.1.2.2\build\monoandroid\xamstore-xamarin.auth.props')" />
   <ItemGroup />
-  <ItemGroup>
-    <Folder Include="Renderers\" />
-  </ItemGroup>
 </Project>

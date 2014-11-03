@@ -18,7 +18,6 @@ namespace QookleApp
 				OnChanged(e);
 			};
 			ClosingLabel.GestureRecognizers.Add (tapGestureRecognizer);
-
 		}
 
 		// Invoke the Changed event; called whenever list changes

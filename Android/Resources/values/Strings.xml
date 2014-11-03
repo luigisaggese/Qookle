@@ -2,4 +2,11 @@
 <resources>
 	<string name="hello">Hello World, Click Me!</string>
 	<string name="app_name">QookleApp.Android.Android</string>
+	<style name="Theme.Splash" parent="android:Theme">
+    <item name="android:windowBackground">@drawable/splashscreen</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowIsTranslucent">false</item>
+    <item name="android:windowIsFloating">false</item>
+    <item name="android:backgroundDimEnabled">true</item>
+  </style>
 </resources>

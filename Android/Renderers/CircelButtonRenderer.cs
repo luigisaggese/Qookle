@@ -7,28 +7,34 @@ using Android.Graphics;
 using Xamarin.Forms.Platform.Android;
 using QookleApp.Android;
 using System.ComponentModel;
-using Xamarin.Forms.Labs.Droid.Controls.CircleImage;
+using Xamarin.Forms.CircleImage;
 
 [assembly: ExportRenderer(typeof(RoundedImage), typeof(CircleImageRenderer))]
-namespace Xamarin.Forms.Labs.Droid.Controls.CircleImage
+namespace Xamarin.Forms.CircleImage
 {
 	public class CircleImageRenderer : ImageRenderer
 	{
 		protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
 		{
 			base.OnElementPropertyChanged(sender, e);
-			if (e.PropertyName == Image.IsLoadingProperty.PropertyName && !this.Element.IsLoading
-				&& this.Control.Drawable != null)
+			try
 			{
-				//Should only be true right after an image is loaded
-				using (var sourceBitmap = Bitmap.CreateBitmap(this.Control.Drawable.IntrinsicWidth, this.Control.Drawable.IntrinsicHeight, Bitmap.Config.Argb8888))
+				if (e.PropertyName == Image.IsLoadingProperty.PropertyName && !this.Element.IsLoading
+					&& this.Control.Drawable != null)
 				{
-					Canvas canvas = new Canvas(sourceBitmap);
-					this.Control.Drawable.SetBounds(0, 0, canvas.Width, canvas.Height);
-					this.Control.Drawable.Draw(canvas);
-					this.ReshapeImage(sourceBitmap);                        
+					//Should only be true right after an image is loaded
+					using (var sourceBitmap = Bitmap.CreateBitmap(this.Control.Drawable.IntrinsicWidth, this.Control.Drawable.IntrinsicHeight, Bitmap.Config.Argb8888))
+					{
+						Canvas canvas = new Canvas(sourceBitmap);
+						this.Control.Drawable.SetBounds(0, 0, canvas.Width, canvas.Height);
+						this.Control.Drawable.Draw(canvas);
+						this.ReshapeImage(sourceBitmap);                        
+					}
 				}
 			}
+			catch(Exception) {
+			}
+
 		}
 
 		private void ReshapeImage(Bitmap sourceBitmap)

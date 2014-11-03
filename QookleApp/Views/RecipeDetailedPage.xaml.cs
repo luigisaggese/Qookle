@@ -6,12 +6,20 @@ namespace QookleApp
 {	
 	public partial class RecipeDetailedPage : ContentPage
 	{	
-		string _id;
-
-		public RecipeDetailedPage (string id)
+		Recipe _recipe;
+		public RecipeDetailedPage (Recipe recipe)
 		{
-			_id = id;
+			_recipe = recipe;
+			this.BindingContext = new DetailedRecipeViewModel(recipe);
+
 			InitializeComponent ();
+
+			var tapGestureRecognizer = new TapGestureRecognizer ();
+			tapGestureRecognizer.Tapped += (s, e) => {
+				Navigation.PushAsync(new RecipeViewPage(_recipe.id));
+			};
+
+			PrepareButton.GestureRecognizers.Add (tapGestureRecognizer);
 		}
 	}
 }

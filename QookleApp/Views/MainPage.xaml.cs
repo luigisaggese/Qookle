@@ -8,22 +8,43 @@ namespace QookleApp
 {	
 	public partial class MainPage : ContentPage, IViewModel<MainPageViewModel>
 	{
-		#region IViewModel implementation
-
 		MainPageViewModel ViewModel; 
 
-		// This will be called whenever the list changes.
+		string _facebookUserName = "";
+		public string FacebookUserName {
+			get{ 
+				return _facebookUserName;
+			}
+			set{ 
+				this.FacebookUser.Text = value;
+				if (string.IsNullOrWhiteSpace (value)) {
+					FacebookPictureImage.IsVisible = false;
+				} else {
+					FacebookPictureImage.IsVisible = true;
+				}
+				_facebookUserName = value;
+			}
+		}
+
+		string _facebookPictureUri;
+		public string FacebookPictureUri {
+			get{ 
+				return _facebookPictureUri;
+			}
+			set{ 
+				_facebookPictureUri = value;
+				FacebookPictureImage.Source = value;
+			}
+		}
+
 		private void SearchTapped(object sender, EventArgs e) 
 		{
 			ViewModel.SelectNewIngredient((sender as SearchedIngredientCellView).BindingContext as string);
-			
-			//Console.WriteLine("This is called when the event fires.");
 		}
 
 		private void SelectedTapped(object sender, EventArgs e) 
 		{
 			ViewModel.RemoveIngredient ((sender as SelectedIngredientCellView).BindingContext as string);
-			//Console.WriteLine("This is called when the event fires.");
 		}
 
 		void ResetSelectedList()
@@ -53,27 +74,26 @@ namespace QookleApp
 			return (MainPageViewModel)this.BindingContext;
 		}
 
-
 		public void SetViewModel (MainPageViewModel viewModel)
 		{
 			BindingContext = viewModel;
 		}
-
-		#endregion
-
 	
 		public MainPage ()
 		{
 			InitializeComponent ();
-			/*
+
 			TextEntry.Focused += (sender, e) => {
-				FacebookImage.HeightRequest = 0;
-				HeaderImage.HeightRequest = 0;
+				QookButton.HeightRequest = 0;
+				QookButtonGrid.HeightRequest = 0;
+				FaceBookAccountLayout.HeightRequest = 0;
+
 			};
 			TextEntry.Unfocused += (sender, e) => {
-				FacebookImage.HeightRequest = 60;
-				HeaderImage.HeightRequest = 120;
-			};*/
+				FaceBookAccountLayout.HeightRequest = 80;
+				QookButtonGrid.HeightRequest = 80;
+				QookButton.HeightRequest = 100;
+			};
 
 			var tapGestureRecognizer = new TapGestureRecognizer ();
 			tapGestureRecognizer.Tapped += (s, e) => {
@@ -84,6 +104,26 @@ namespace QookleApp
 			};
 
 			QookButton.GestureRecognizers.Add (tapGestureRecognizer);
+
+			var facebookTapGestureRecognizer = new TapGestureRecognizer ();
+			facebookTapGestureRecognizer.Tapped += async (s, e) => {
+				if(FacebookUserName != "")
+				{
+					var action = await DisplayActionSheet ("Logged in as " + FacebookUserName, "Log out", "Cancel");
+					
+					if(action == "Log out")
+					{
+						FacebookUserName = "";
+					}
+				}
+				else
+				{
+					await Navigation.PushAsync(new LoginFacebookPage());
+				}
+
+			};
+
+			FacebookImageButton.GestureRecognizers.Add (facebookTapGestureRecognizer);
 
 			ViewModel = new MainPageViewModel ();
 			this.SetViewModel (ViewModel);

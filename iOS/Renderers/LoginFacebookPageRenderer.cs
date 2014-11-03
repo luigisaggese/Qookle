@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using Xamarin.Auth;
 using Xamarin.Forms.Platform.iOS;
 using Xamarin.Forms;
@@ -10,47 +10,59 @@ using QookleApp.iOS;
 namespace QookleApp.iOS
 {
 	public class LoginFacebookPageRenderer : PageRenderer
-	{
+    {
+        public override void ViewDidAppear (bool animated)
+        {
+            base.ViewDidAppear (animated);
 
-		bool IsShown;
+            // I've used the values from your original post
+            var auth = new OAuth2Authenticator (
+				clientId: App.OAuthSettings.ClientId,
+				scope: App.OAuthSettings.Scope,
+				authorizeUrl: App.OAuthSettings.AuthorizeUrl,
+				redirectUrl: App.OAuthSettings.RedirectUrl);
 
-		public override void ViewDidAppear (bool animated)
-		{
-			base.ViewDidAppear (animated);
+			auth.Completed += (sender, eventArgs) => {
+				if (eventArgs.IsAuthenticated) {
 
-			// Fixed the issue that on iOS 8, the modal wouldn't be popped.
-			// url : http://stackoverflow.com/questions/24105390/how-to-login-to-facebook-in-xamarin-forms
-			if(	! IsShown ) {
+					AccountStore.Create ().Save (eventArgs.Account, "Facebook");
 
-				IsShown = true;
+					FaceBookAccount user = new FaceBookAccount();
+					string pictureUri = "";
 
-				var auth = new OAuth2Authenticator (
-					clientId: App.Instance.OAuthSettings.ClientId, // your OAuth2 client id
-					scope: App.Instance.OAuthSettings.Scope, // The scopes for the particular API you're accessing. The format for this will vary by API.
-					authorizeUrl: new Uri (App.Instance.OAuthSettings.AuthorizeUrl), // the auth URL for the service
-					redirectUrl: new Uri (App.Instance.OAuthSettings.RedirectUrl)); // the redirect URL for the service
+					var request = new OAuth2Request ("GET", new Uri ("https://graph.facebook.com/me"), null, eventArgs.Account);
+					request.GetResponseAsync().ContinueWith (t => {
+						if (t.IsFaulted)
+							Console.WriteLine ("Error: " + t.Exception.InnerException.Message);
+						else {
+							string json = t.Result.GetResponseText();
+
+							user = Newtonsoft.Json.JsonConvert.DeserializeObject<FaceBookAccount>(json);
+						}
+					}).Wait();
+					var requestPhoto = new OAuth2Request ("GET", new Uri ("https://graph.facebook.com/me/picture"), null, eventArgs.Account);
+					requestPhoto.GetResponseAsync().ContinueWith (t => {
+						if (t.IsFaulted)
+							Console.WriteLine ("Error: " + t.Exception.InnerException.Message);
+						else {
+							string json = t.Result.GetResponseText();
+							pictureUri = t.Result.ResponseUri.AbsolutePath;
+						}
+					}).Wait();
+                    
+					App.SuccessfulLoginAction.Invoke(user.name, pictureUri);
+				} else {
+					App.CancelLoginAction.Invoke();
+				}
 
 
+			};
 
 
-				auth.Completed += (sender, eventArgs) => {
-					// We presented the UI, so it's up to us to dimiss it on iOS.
-					App.Instance.SuccessfulLoginAction.Invoke();
-
-					if (eventArgs.IsAuthenticated) {
-						// Use eventArgs.Account to do wonderful things
-						App.Instance.SaveToken(eventArgs.Account.Properties["access_token"]);
-					} else {
-						// The user cancelled
-					}
-				};
-
-				PresentViewController (auth.GetUI (), true, null);
-
-			}
-
-		}
-	}
+            PresentViewController (auth.GetUI (), true, null);
+        }
+    }
 }
+
 
 

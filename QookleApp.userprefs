@@ -1,31 +1,37 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.192.168.56.101:5555" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="QookleApp\Views\MainPage.xaml.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.SelectDevice" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="QookleApp\Views\RecipeDetailedPage.xaml">
     <Files>
-      <File FileName="QookleApp\Views\RecipeListPage.xaml" Line="10" Column="10" />
-      <File FileName="QookleApp\Views\RecipeViewPage.xaml" Line="22" Column="22" />
-      <File FileName="QookleApp\Views\MainPage.xaml" Line="40" Column="40" />
-      <File FileName="QookleApp\Views\MainPage.xaml.cs" Line="3" Column="3" />
-      <File FileName="e:\my\Qoo\QookleApp\QookleApp\Data\IngredientsList.cs" Line="37" Column="37" />
-      <File FileName="QookleApp\ViewModels\RecipeListPageViewModel.cs" Line="1" Column="1" />
-      <File FileName="QookleApp\ViewModels\MainPageViewModel.cs" Line="5" Column="5" />
-      <File FileName="QookleApp\Helpers\ServiceHelper.cs" Line="3" Column="3" />
-      <File FileName="QookleApp\Models\IService.cs" Line="65" Column="65" />
-      <File FileName="QookleApp\Models\Recipe.cs" Line="4" Column="4" />
-      <File FileName="QookleApp\Models\RecipeList.cs" Line="21" Column="21" />
-      <File FileName="QookleApp\Properties\AssemblyInfo.cs" Line="33" Column="33" />
+      <File FileName="iOS\Renderers\LoginFacebookPageRenderer.cs" Line="1" Column="1" />
+      <File FileName="iOS\Renderers\CircelButtonRenderer.cs" Line="1" Column="1" />
+      <File FileName="QookleApp\App.cs" Line="1" Column="1" />
+      <File FileName="QookleApp\Views\MainPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="Android\Renderers\LoginFacebookPageRenderer.cs" Line="1" Column="1" />
+      <File FileName="Android\Helpers\FaceBookAccount.cs" Line="1" Column="1" />
+      <File FileName="Android\Renderers\CircelButtonRenderer.cs" Line="1" Column="1" />
+      <File FileName="QookleApp\ViewModels\DetailedRecipeViewModel.cs" Line="1" Column="1" />
+      <File FileName="QookleApp\Models\Recipe.cs" Line="1" Column="1" />
+      <File FileName="QookleApp\Views\RecipeDetailedPage.xaml" Line="3" Column="3" />
+      <File FileName="QookleApp\Views\RecipeListPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="QookleApp\Views\RecipeDetailedPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="QookleApp\ViewModels\RecipeViewPageViewModel.cs" Line="1" Column="1" />
+      <File FileName="QookleApp\ViewModels\MainPageViewModel.cs" Line="1" Column="1" />
+      <File FileName="QookleApp\Views\RecipeListPage.xaml" Line="1" Column="1" />
+      <File FileName="QookleApp\Views\RecipeViewPage.xaml" Line="1" Column="1" />
+      <File FileName="QookleApp\Views\Controls\RecipeListView.xaml" Line="1" Column="1" />
+      <File FileName="QookleApp\Views\Controls\RoundedButton.cs" Line="1" Column="1" />
+      <File FileName="QookleApp\Views\Controls\BorderedImage.cs" Line="1" Column="1" />
+      <File FileName="Android\Renderers\BorderedImageRenderer.cs" Line="1" Column="1" />
       <File FileName="QookleApp\ViewModels\BaseViewModel.cs" Line="1" Column="1" />
-      <File FileName="QookleApp\Views\RecipeViewPage.xaml.cs" Line="14" Column="14" />
-      <File FileName="QookleApp\Views\RecipeListPage.xaml.cs" Line="16" Column="16" />
-      <File FileName="QookleApp\ViewModels\RecipeViewPageViewModel.cs" Line="44" Column="44" />
-      <File FileName="QookleApp\Views\Controls\RecipeListView.xaml.cs" Line="8" Column="8" />
-      <File FileName="QookleApp\Views\IViewModel.cs" Line="1" Column="1" />
-      <File FileName="QookleApp\Views\Controls\WrapLayout.cs" Line="43" Column="43" />
-      <File FileName="e:\my\Qoo\QookleApp\QookleApp\obj\Debug\MainPage.xaml.g.cs" Line="1" Column="1" />
-      <File FileName="QookleApp\Views\Controls\RecipeListView.xaml" Line="70" Column="70" />
-      <File FileName="QookleApp\Views\Controls\IngredientCellView.xaml" Line="87" Column="87" />
-      <File FileName="QookleApp\Views\Controls\IngridientCellView.xaml.cs" Line="4" Column="4" />
-      <File FileName="e:\my\Qoo\QookleApp\QookleApp\obj\Debug\IngredientCellView.xaml.g.cs" Line="1" Column="1" />
+      <File FileName="QookleApp\ViewModels\RecipeListPageViewModel.cs" Line="1" Column="1" />
+      <File FileName="QookleApp\OAuthSettings.cs" Line="1" Column="1" />
+      <File FileName="QookleApp\Helpers\ServiceHelper.cs" Line="1" Column="1" />
+      <File FileName="QookleApp\Data\IngredientsList.cs" Line="1" Column="1" />
+      <File FileName="QookleApp\SplashScreen.xaml" Line="1" Column="1" />
+      <File FileName="QookleApp\SplashScreen.xaml.cs" Line="1" Column="1" />
+      <File FileName="Android\MainActivity.cs" Line="1" Column="1" />
+      <File FileName="iOS\Main.cs" Line="1" Column="1" />
+      <File FileName="Android\Resources\Resource.designer.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -34,4 +40,5 @@
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.QookleApp.Android MonoForAntroid.PreferredDevice="Nexus 4" />
 </Properties>

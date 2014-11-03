@@ -9,8 +9,7 @@ namespace QookleApp
 
 		public RoundedImage ()
 		{
-			Radius = 500;
-			//BackgroundColor = Color.Aqua;
+			Radius = Height / 2;
 		}
 	}
 }

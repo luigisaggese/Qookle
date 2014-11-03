@@ -1,9 +1,38 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage BackgroundImage="Back.png" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="QookleApp.RecipeDetailedPage">
+<ContentPage BackgroundImage="BackOpacity.jpg" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="QookleApp.RecipeDetailedPage">
 	<ContentPage.Content>
 
 	<ScrollView>
-	<Grid>
+	<Grid >
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<StackLayout Grid.Row="0" HorizontalOptions="Center" Padding="10, 10, 10, 10">
+			<Image  Source="{Binding Image}" />
+		</StackLayout>
+
+		<StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="Center">
+			<Label Text="Proprietario della ricetta:" TextColor="#96B4F0" Font="Bold"/>
+			<Label Text="{Binding Publisher}" TextColor="#96B4F0" Font="Bold"/>
+		</StackLayout>
+		<StackLayout Grid.Row="2" HorizontalOptions="Center" Padding="0, 10, 0, 20">
+			<Label  Text="Visualizza preparazione"  Font="Bold" TextColor="Blue" x:Name="PrepareButton"/>
+		</StackLayout>
+
+		<StackLayout Grid.Row="3" HorizontalOptions="Center" Padding="0, 0, 0, 10">
+			<Label  Text="Ingredienti:" TextColor="Blue"/>
+		</StackLayout>
+
+		<StackLayout Grid.Row="4" Padding="10, 0, 10, 0">		
+			<Label  Text="{Binding IngredientsString}" TextColor="Black"/>
+		</StackLayout>
 
 
 	</Grid>

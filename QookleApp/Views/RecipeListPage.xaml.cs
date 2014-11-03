@@ -10,8 +10,6 @@ namespace QookleApp
 	{	
 		#region IViewModel implementation
 
-
-
 		public RecipeListPageViewModel GetCurrentViewModel ()
 		{
 			return (RecipeListPageViewModel)this.BindingContext;
@@ -32,9 +30,7 @@ namespace QookleApp
 			this.SetViewModel (new RecipeListPageViewModel (selectedIngredients));
 			RecipeList1.ItemTapped += (object sender, ItemTappedEventArgs e) => 
 			{
-				this.Navigation.PushAsync(new RecipeDetailedPage (((Recipe)e.Item).id));
-
-				//this.Navigation.PushAsync(new RecipeViewPage (((Recipe)e.Item).id));
+				this.Navigation.PushAsync(new RecipeDetailedPage (((Recipe)e.Item)));
 			};
 
 			this.GetCurrentViewModel ().PropertyChanged += (sender, e) => 

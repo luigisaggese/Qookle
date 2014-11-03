@@ -50,7 +50,7 @@ namespace QookleApp
 		}
 
 		public string publisherimage {
-			get{return "http://g.etfv.co/"+published+"?defaulticon=bluepng"; }
+			get{return "http://g.etfv.co/"+url+"?defaulticon=bluepng"; }
 		}
 
 	}

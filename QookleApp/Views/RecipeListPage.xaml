@@ -1,12 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="QookleApp.RecipeListPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="QookleApp.RecipeListPage" BackgroundImage="BackOpacity.jpg">
 	<ContentPage.Content>
 		<Grid>
 			<Grid.RowDefinitions>
 				<RowDefinition Height="60*"/>
 				<RowDefinition Height="0"/>
-			</Grid.RowDefinitions>
-			<ListView Grid.Row="0" ItemsSource="{Binding RecipesList}" x:Name="RecipeList1" RowHeight="240"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+                    <ListView Grid.Row="0" Grid.Column="0" HorizontalOptions="Fill"  ItemsSource="{Binding RecipesList}" x:Name="RecipeList1" RowHeight="240"/>
 		</Grid>
 	</ContentPage.Content>
 </ContentPage>

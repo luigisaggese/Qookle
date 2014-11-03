@@ -36,9 +36,45 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Controls\WrapLayout.cs" />
+    <Compile Include="Views\RecipeListPage.xaml.cs">
+      <DependentUpon>RecipeListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\Recipe.cs" />
     <Compile Include="Helpers\ServiceHelper.cs" />
     <Compile Include="Models\IService.cs" />
+    <Compile Include="Views\RecipeViewPage.xaml.cs">
+      <DependentUpon>RecipeViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\RecipeListPageViewModel.cs" />
+    <Compile Include="ViewModels\RecipeViewPageViewModel.cs" />
+    <Compile Include="Views\IViewModel.cs" />
+    <Compile Include="Models\RecipeList.cs" />
+    <Compile Include="Views\Controls\RecipeListView.xaml.cs">
+      <DependentUpon>RecipeListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Data\IngredientsList.cs" />
+    <Compile Include="Views\Controls\IngridientCellView.xaml.cs">
+      <DependentUpon>SelectedIngredientCellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\SearchedIngredientCellView.xaml.cs">
+      <DependentUpon>SearchedIngredientCellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RecipeDetailedPage.xaml.cs">
+      <DependentUpon>RecipeDetailedPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\RoundedButton.cs" />
+    <Compile Include="Views\LoginFacebookPage.xaml.cs">
+      <DependentUpon>LoginFacebookPage.xaml</DependentUpon>
+    </Compile>
+<<<<<<< local
+    <Compile Include="Views\testpage.xaml.cs">
+      <DependentUpon>testpage.xaml</DependentUpon>
+    </Compile>
+=======
+    <Compile Include="OAuthSettings.cs" />
+>>>>>>> other
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.2.3.6257\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.2.3.6257\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />
@@ -48,9 +84,34 @@
     <Folder Include="Views\Controls\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Helpers\" />
+    <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RecipeListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RecipeViewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Controls\RecipeListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Controls\SearchedIngredientCellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Controls\SelectedIngredientCellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RecipeDetailedPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoginFacebookPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\testpage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>

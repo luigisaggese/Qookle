@@ -13,7 +13,7 @@ using Xamarin.Forms.Platform.Android;
 
 namespace QookleApp.Android
 {
-	[Activity (Label = "QookleApp.Android.Android", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	[Activity (Label = "Qookle App", Theme="@android:style/Theme.Holo", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : AndroidActivity
 	{
 		protected override void OnCreate (Bundle bundle)
@@ -25,5 +25,6 @@ namespace QookleApp.Android
 			SetPage (App.GetMainPage ());
 		}
 	}
+
 }
 
