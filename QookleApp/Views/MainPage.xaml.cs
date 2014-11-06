@@ -9,7 +9,6 @@ namespace QookleApp
 	public partial class MainPage : ContentPage, IViewModel<MainPageViewModel>
 	{
 		MainPageViewModel ViewModel; 
-
 		string _facebookUserName = "";
 		public string FacebookUserName {
 			get{ 
@@ -79,10 +78,11 @@ namespace QookleApp
 			BindingContext = viewModel;
 		}
 	
+
 		public MainPage ()
 		{
 			InitializeComponent ();
-
+			
 			TextEntry.Focused += (sender, e) => {
 				QookButton.HeightRequest = 0;
 				QookButtonGrid.HeightRequest = 0;
@@ -93,6 +93,7 @@ namespace QookleApp
 				FaceBookAccountLayout.HeightRequest = 80;
 				QookButtonGrid.HeightRequest = 80;
 				QookButton.HeightRequest = 100;
+
 			};
 
 			var tapGestureRecognizer = new TapGestureRecognizer ();

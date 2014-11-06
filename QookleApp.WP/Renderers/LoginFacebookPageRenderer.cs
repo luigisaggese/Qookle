@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Navigation;
+using GoogleAds;
 using Microsoft.Phone.Controls;
 using Newtonsoft.Json;
 using QookleApp;
@@ -33,11 +34,10 @@ namespace QookleApp.WP.Renderers
         private WebBrowser browser;
         public LoginFacebookPageRenderer()
         {
-            
+           
             browser = new WebBrowser()
             {
                 Name = "webBrowser1",
-                Background = new SolidColorBrush(Colors.Red),
                 HorizontalAlignment = HorizontalAlignment.Stretch,
                 VerticalAlignment = VerticalAlignment.Stretch,
                 Height = Application.Current.Host.Content.ActualHeight,
@@ -53,6 +53,11 @@ namespace QookleApp.WP.Renderers
             UIElement s = this.Children.FirstOrDefault(x => x.Visibility == Visibility.Visible);
             var ss = ((WebBrowser) s);
             ss.Navigate(url);
+            var bannerAd = new GoogleAds.AdView() { AdUnitID = "ca-app-pub-2065491276581929/9025431693", Format = GoogleAds.AdFormats.Banner };
+            AdRequest adRequest = new AdRequest();
+
+            Children.Add(bannerAd);
+            bannerAd.LoadAd(adRequest);
         }
 
 

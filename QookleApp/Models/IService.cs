@@ -6,7 +6,7 @@ namespace QookleApp
 {
 	public interface IService
 	{
-	    Task<RecipeList> GetRecipe(IEnumerable<string> parameters);
+	    Task<RecipeList> GetRecipe(IEnumerable<string> parameters, int page);
 	}
 }
 

@@ -16,14 +16,13 @@ namespace QookleApp.iOS
 	{
 		#region IService implementation
 
-		async Task<RecipeList> IService.GetRecipe (IEnumerable<string> parameters)
+		async Task<RecipeList> IService.GetRecipe (IEnumerable<string> parameters, int page)
 		{
-			#if !DEBUG
+		
 			try 
-			#endif
 			{
 				String requestString = "https://qookle-com.appspot.com/_ah/api/qookle/v1/search?";
-				requestString+="offset=0";
+				requestString+="offset="+page.ToString();
 
 				foreach(var par in parameters){
 					requestString+="&search="+par;
@@ -47,11 +46,12 @@ namespace QookleApp.iOS
 
 				return res;
 			}
-			#if !DEBUG
+
 			catch (Exception ex) {
-				return null;
+				Debug.WriteLine ("SOOOOOOOOOSNNOOOLEY!!!!: " + ex.Message);
+			return new RecipeList();
 			}
-			#endif
+
 		}
 
 		#endregion

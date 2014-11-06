@@ -10,7 +10,6 @@ using Android.OS;
 
 using Xamarin.Forms.Platform.Android;
 
-
 namespace QookleApp.Android
 {
 	[Activity (Label = "Qookle App", Theme="@android:style/Theme.Holo", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]

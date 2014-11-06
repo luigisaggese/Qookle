@@ -1,44 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.SelectDevice" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="QookleApp\Views\RecipeDetailedPage.xaml">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.nexus7" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Android\MainActivity.cs">
     <Files>
-      <File FileName="iOS\Renderers\LoginFacebookPageRenderer.cs" Line="1" Column="1" />
-      <File FileName="iOS\Renderers\CircelButtonRenderer.cs" Line="1" Column="1" />
-      <File FileName="QookleApp\App.cs" Line="1" Column="1" />
-      <File FileName="QookleApp\Views\MainPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="Android\Renderers\LoginFacebookPageRenderer.cs" Line="1" Column="1" />
-      <File FileName="Android\Helpers\FaceBookAccount.cs" Line="1" Column="1" />
-      <File FileName="Android\Renderers\CircelButtonRenderer.cs" Line="1" Column="1" />
-      <File FileName="QookleApp\ViewModels\DetailedRecipeViewModel.cs" Line="1" Column="1" />
-      <File FileName="QookleApp\Models\Recipe.cs" Line="1" Column="1" />
-      <File FileName="QookleApp\Views\RecipeDetailedPage.xaml" Line="3" Column="3" />
-      <File FileName="QookleApp\Views\RecipeListPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="QookleApp\Views\RecipeDetailedPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="QookleApp\ViewModels\RecipeViewPageViewModel.cs" Line="1" Column="1" />
-      <File FileName="QookleApp\ViewModels\MainPageViewModel.cs" Line="1" Column="1" />
-      <File FileName="QookleApp\Views\RecipeListPage.xaml" Line="1" Column="1" />
-      <File FileName="QookleApp\Views\RecipeViewPage.xaml" Line="1" Column="1" />
-      <File FileName="QookleApp\Views\Controls\RecipeListView.xaml" Line="1" Column="1" />
-      <File FileName="QookleApp\Views\Controls\RoundedButton.cs" Line="1" Column="1" />
-      <File FileName="QookleApp\Views\Controls\BorderedImage.cs" Line="1" Column="1" />
-      <File FileName="Android\Renderers\BorderedImageRenderer.cs" Line="1" Column="1" />
-      <File FileName="QookleApp\ViewModels\BaseViewModel.cs" Line="1" Column="1" />
-      <File FileName="QookleApp\ViewModels\RecipeListPageViewModel.cs" Line="1" Column="1" />
-      <File FileName="QookleApp\OAuthSettings.cs" Line="1" Column="1" />
-      <File FileName="QookleApp\Helpers\ServiceHelper.cs" Line="1" Column="1" />
-      <File FileName="QookleApp\Data\IngredientsList.cs" Line="1" Column="1" />
-      <File FileName="QookleApp\SplashScreen.xaml" Line="1" Column="1" />
-      <File FileName="QookleApp\SplashScreen.xaml.cs" Line="1" Column="1" />
       <File FileName="Android\MainActivity.cs" Line="1" Column="1" />
-      <File FileName="iOS\Main.cs" Line="1" Column="1" />
-      <File FileName="Android\Resources\Resource.designer.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="D:\Qookle\QookleApp\iOS\Helpers\WebServiceHelper.cs" line="39" column="4" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.QookleApp.Android MonoForAntroid.PreferredDevice="Nexus 4" />
 </Properties>

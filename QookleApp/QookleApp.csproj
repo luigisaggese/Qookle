@@ -33,6 +33,9 @@
     <Compile Include="App.cs" />
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\AdsPage.xaml.cs">
+      <DependentUpon>AdsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -72,10 +75,10 @@
     <Compile Include="OAuthSettings.cs" />
     <Compile Include="ViewModels\DetailedRecipeViewModel.cs" />
     <Compile Include="Views\Controls\BorderedImage.cs" />
+    <Compile Include="Views\Controls\CustomList.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.2.3.6257\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.2.3.6257\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />
-  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -110,11 +113,17 @@
       <HintPath>..\packages\Xamarin.Forms.1.2.3.6257\lib\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\DLL\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\portable-net45+wp80+win8+wpa81+aspnetcore50\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Data\Ingredienti.json" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\AdsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

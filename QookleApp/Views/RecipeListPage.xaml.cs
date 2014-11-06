@@ -28,11 +28,10 @@ namespace QookleApp
 		{
 			InitializeComponent ();
 			this.SetViewModel (new RecipeListPageViewModel (selectedIngredients));
-			RecipeList1.ItemTapped += (object sender, ItemTappedEventArgs e) => 
-			{
-				this.Navigation.PushAsync(new RecipeDetailedPage (((Recipe)e.Item)));
-			};
-
+			RecipeList1.OnScrolledToEnd = new Action (async () => {
+				this.GetCurrentViewModel().UploadNewItems();
+			});
+			RecipeList1.ItemTemplate = new DataTemplate (typeof(RecipeListViewCell));
 			this.GetCurrentViewModel ().PropertyChanged += (sender, e) => 
 			{
 				if(e.PropertyName=="RecipesList")
@@ -44,7 +43,7 @@ namespace QookleApp
 					}
 					else
 					{
-						RecipeList1.ItemTemplate = new DataTemplate (typeof(RecipeListViewCell));
+						///RAHIT!!
 					}
 				}
 

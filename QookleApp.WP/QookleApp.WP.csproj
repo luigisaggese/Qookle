@@ -97,6 +97,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Renderers\AdsPageRenderer.cs" />
     <Compile Include="Renderers\BorderedImageRenderer.cs" />
     <Compile Include="Renderers\CircelButtonRenderer.cs" />
     <Compile Include="Renderers\LoginFacebookPageRenderer.cs" />
@@ -131,6 +132,8 @@
     <Content Include="Button.jpg" />
     <Content Include="cross.png" />
     <Content Include="facebook.png" />
+    <Content Include="GoogleAds\GoogleAds.dll" />
+    <Content Include="GoogleAds\GoogleAds.XML" />
     <Content Include="Pic100.png" />
     <Content Include="Qookle.jpg" />
     <Content Include="Assets\ApplicationIcon.png">
@@ -154,7 +157,6 @@
     <Content Include="README_FIRST.txt" />
     <Content Include="SplashScreenImage.jpg" />
     <Content Include="Star.png" />
-    <Content Include="StartScreen.jpg" />
     <Content Include="StartScreen.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
@@ -169,6 +171,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="GoogleAds, Version=6.5.13.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
       <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>
