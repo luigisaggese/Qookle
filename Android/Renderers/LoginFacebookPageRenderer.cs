@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using QookleApp;
 using QookleApp.Android;
+using Android.Gms.Ads;
 
 [assembly: ExportRenderer (typeof (LoginFacebookPage), typeof (LoginFacebookPageRenderer))]
 namespace QookleApp.Android
@@ -25,6 +26,11 @@ namespace QookleApp.Android
 				isShown = true;
 
 				var activity = this.Context as Activity;
+
+
+
+
+
 
 				var auth = new OAuth2Authenticator (
 					          clientId: App.OAuthSettings.ClientId, // your OAuth2 client id
@@ -68,9 +74,11 @@ namespace QookleApp.Android
 
 				};
 
-				var facebookUI = auth.GetUI (activity);
-
+				global::Android.Content.Intent facebookUI = auth.GetUI (activity);
+				
 				activity.StartActivity (facebookUI);
+
+				
 			}
 		}
 

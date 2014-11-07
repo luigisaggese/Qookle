@@ -9,6 +9,9 @@ using Android.Widget;
 using Android.OS;
 
 using Xamarin.Forms.Platform.Android;
+using Xamarin.Forms;
+using Android.Gms.Ads;
+
 
 namespace QookleApp.Android
 {

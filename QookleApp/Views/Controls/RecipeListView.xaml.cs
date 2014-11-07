@@ -9,12 +9,27 @@ namespace QookleApp
 		public RecipeListView ()
 		{
 			InitializeComponent ();
+            this.BindingContextChanged+=OnBindingContextChanged;
 		}
+
+	    private void OnBindingContextChanged(object sender, EventArgs eventArgs)
+	    {
+            if (this.BindingContext != null && this.BindingContext.GetType() != typeof(Recipe))
+            {
+                MainRecipeListElementGrid.IsVisible = false;
+                MainAdvertisementGrid.IsVisible = true;
+                MainAdvertisementGrid.Children.Add(new GoogleAdsView());
+            }
+	    }
 	}
 
 	public class RecipeListViewCell:ViewCell{
+
+
 		public RecipeListViewCell(){
-			this.View=new RecipeListView();
+            
+            this.View=new RecipeListView();
+
 		}
 	}
 }

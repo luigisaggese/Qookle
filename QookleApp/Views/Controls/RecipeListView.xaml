@@ -1,27 +1,34 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="QookleApp.RecipeListView" xmlns:local="clr-namespace:QookleApp;assembly=QookleApp">
-	<ContentView.Content>
-	<Grid>
-		<Grid.RowDefinitions>
-			<RowDefinition Height="Auto"/>
-			<RowDefinition Height="Auto"/>
-			<RowDefinition Height="200"/>
-		</Grid.RowDefinitions>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="40"/>
-			<ColumnDefinition Width="*"/>
-		</Grid.ColumnDefinitions>
-		<Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="Fill" VerticalOptions="Fill">	
-			<local:BorderedImage Source="Pic100.png" Aspect="Fill" HeightRequest="40" WidthRequest="40"/>		
-		
-			<local:RoundedImage Source="{Binding publisherimage}" Aspect="Fill" HorizontalOptions="Center"  VerticalOptions="Center"/>		
-		</Grid>
+    <ContentView.Content>
+        <StackLayout>
+            <Grid x:Name="MainRecipeListElementGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="200"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="Fill" VerticalOptions="Fill">
+                    <local:BorderedImage Source="Pic100.png" Aspect="Fill" HeightRequest="40" WidthRequest="40"/>
 
-		<Label Text="{Binding title}" HorizontalOptions="Start" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" Font="Micro"/>
-		<Label Text="{Binding publisher}" HorizontalOptions="Start" TextColor="#00A2FF" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" Font="Micro"/>
-		<StackLayout Grid.Row="2" Grid.Column="0"  Grid.ColumnSpan="2" Padding="10, 0, 10, 0">
-			<Image Source="{Binding img}" HorizontalOptions="Fill" />
-		</StackLayout>
-	</Grid>
-	</ContentView.Content>
+                    <!--<local:RoundedImage Source="{Binding publisherimage}" Aspect="Fill" HorizontalOptions="Center"  VerticalOptions="Center"/>-->
+                </Grid>
+
+                <Label Text="{Binding title}" HorizontalOptions="Start" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" Font="Bold,Small" TextColor="Black"/>
+                <Label Text="{Binding publisher}" HorizontalOptions="Start" TextColor="#00A2FF" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" Font="Bold,Small"/>
+                <StackLayout Grid.Row="2" Grid.Column="0"  Grid.ColumnSpan="2" Padding="10, 0, 10, 0">
+                    <Image Source="{Binding img}" HorizontalOptions="Fill" />
+                </StackLayout>
+            </Grid>
+
+
+            <Grid x:Name="MainAdvertisementGrid" IsVisible="false">
+                <Label Text="ADVERTISEMENT OHOHO" HorizontalOptions="Start" VerticalOptions="Center" Font="Bold,Medium" TextColor="Black"/>
+            </Grid>
+        </StackLayout>
+    </ContentView.Content>
 </ContentView>

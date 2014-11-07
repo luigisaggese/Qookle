@@ -10,10 +10,10 @@ namespace QookleApp
 	{
 
 		private bool IsLoading;
-		private int currentPage=0;
+		private static int currentPage=0;
 
-		ObservableCollection<Recipe> recipesList = new ObservableCollection<Recipe>();
-		public ObservableCollection<Recipe> RecipesList {
+        ObservableCollection<object> recipesList = new ObservableCollection<object>();
+		public ObservableCollection<object> RecipesList {
 			get {
 				return recipesList;
 			}
@@ -24,24 +24,28 @@ namespace QookleApp
 		}
 		public async void UploadNewItems(){
 			if (!IsLoading) {
-
-				getresult (itmz, currentPage);
-				currentPage += 1;
+			    getresult (itmz, currentPage++);
+				
 
 
 			}
 		}
 
-					List<string> itmz = new List<string> ();
+		List<string> itmz = new List<string> ();
 		public RecipeListPageViewModel (IEnumerable<string> selectedIngredients)
 		{	
 			itmz = selectedIngredients.ToList();
-			getresult (selectedIngredients,currentPage);
+			getresult (selectedIngredients,currentPage++);
 		}
 
 		public async void getresult(IEnumerable<string> selectedIngredients, int page){
 			IsLoading = true;
 			var recipesListfull = await ServiceHelper.GetRecipe (selectedIngredients, page);
+
+            if (RecipesList != null && RecipesList.Any())
+            {
+                RecipesList.Add("advertisement");
+            }
 			foreach (var item in recipesListfull.items) {
 				RecipesList.Add (item);
 			}

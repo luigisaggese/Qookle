@@ -19,10 +19,10 @@ namespace QookleApp.WP
         {
         }
 
-        async Task<RecipeList> IService.GetRecipe(IEnumerable<string> parameters)
+        public async Task<RecipeList> GetRecipe(IEnumerable<string> parameters, int page)
         {
             String requestString = "https://qookle-com.appspot.com/_ah/api/qookle/v1/search?";
-            requestString += "offset=0";
+            requestString += "offset="+page;
 
             foreach (var par in parameters)
             {
