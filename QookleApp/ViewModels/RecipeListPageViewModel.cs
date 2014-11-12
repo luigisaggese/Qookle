@@ -11,6 +11,7 @@ namespace QookleApp
 
 		private bool IsLoading;
 		private static int currentPage=0;
+		static bool IsEndOfList = false;
 
         ObservableCollection<object> recipesList = new ObservableCollection<object>();
 		public ObservableCollection<object> RecipesList {
@@ -23,11 +24,8 @@ namespace QookleApp
 			}
 		}
 		public async void UploadNewItems(){
-			if (!IsLoading) {
+			if (!IsLoading && !IsEndOfList) {
 			    getresult (itmz, currentPage++);
-				
-
-
 			}
 		}
 
@@ -38,17 +36,23 @@ namespace QookleApp
 			getresult (selectedIngredients,currentPage++);
 		}
 
+
 		public async void getresult(IEnumerable<string> selectedIngredients, int page){
 			IsLoading = true;
 			var recipesListfull = await ServiceHelper.GetRecipe (selectedIngredients, page);
 
-            if (RecipesList != null && RecipesList.Any())
-            {
-                RecipesList.Add("advertisement");
-            }
-			foreach (var item in recipesListfull.items) {
-				RecipesList.Add (item);
+			if (recipesListfull != null && recipesListfull.items != null && recipesListfull.items.Any ())
+			{
+				foreach (var item in recipesListfull.items) {
+					RecipesList.Add (item);
+				}
+				RecipesList.Add("advertisement");
 			}
+			else {
+				IsEndOfList = true;
+			}
+
+
 			IsLoading = false;
 		}
 

@@ -20,6 +20,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.WinPhone;
 using Page = Xamarin.Forms.Page;
 using System.Windows.Threading;
+using Thickness = System.Windows.Thickness;
 
 
 [assembly: ExportRenderer(typeof(LoginFacebookPage), typeof(LoginFacebookPageRenderer))]
@@ -53,7 +54,7 @@ namespace QookleApp.WP.Renderers
             UIElement s = this.Children.FirstOrDefault(x => x.Visibility == Visibility.Visible);
             var ss = ((WebBrowser) s);
             ss.Navigate(url);
-            var bannerAd = new GoogleAds.AdView() { AdUnitID = "ca-app-pub-2065491276581929/9025431693", Format = GoogleAds.AdFormats.Banner };
+            var bannerAd = new GoogleAds.AdView() { AdUnitID = "ca-app-pub-2065491276581929/9025431693", Format = GoogleAds.AdFormats.Banner};
             AdRequest adRequest = new AdRequest();
 
             Children.Add(bannerAd);

@@ -27,7 +27,7 @@
 
 
             <Grid x:Name="MainAdvertisementGrid" IsVisible="false">
-                <Label Text="ADVERTISEMENT OHOHO" HorizontalOptions="Start" VerticalOptions="Center" Font="Bold,Medium" TextColor="Black"/>
+            <Label Text="ADVERTISEMENT OHOHO" HorizontalOptions="Start" VerticalOptions="Center" Font="Bold,Medium" TextColor="Black"/>
             </Grid>
         </StackLayout>
     </ContentView.Content>

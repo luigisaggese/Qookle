@@ -13,7 +13,33 @@ using System.Diagnostics;
 namespace QookleApp.iOS
 {
 	public class WebServiceHelper:IService
+
 	{
+		public double GetScreenWidth ()
+		{
+			return 320;
+		}
+
+		public double GetScreenHeight ()
+		{
+			return 480;
+		}
+
+		public double GetScreenDPIHeight ()
+		{
+			return 1136;
+		}
+
+		public double GetScreenDPIWidth ()
+		{
+			return 670;
+		}
+
+		public int ConvertPixelsToDp (float pixelValue)
+		{
+			return (int)pixelValue;
+		}
+
 		#region IService implementation
 
 		async Task<RecipeList> IService.GetRecipe (IEnumerable<string> parameters, int page)

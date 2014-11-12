@@ -1,17 +1,21 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="QookleApp.MainPage" xmlns:local="clr-namespace:QookleApp;assembly=QookleApp">
  <ContentPage.Content>
-			<Grid>
+			<Grid x:Name="MainGrid">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="Auto"/>
-					<RowDefinition Height="*"/>
-					<RowDefinition Height="*"/>
-					<RowDefinition Height="*"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
 					<RowDefinition Height="*"/>
 					<RowDefinition Height="Auto"/>
 				</Grid.RowDefinitions>
-				<Image Source="StartScreen.jpg" Aspect="AspectFit" VerticalOptions="Start" HorizontalOptions="Fill" Grid.Row="0" Grid.RowSpan="6"/>
+				<Image Source="StartScreen.jpg" Aspect="AspectFit" VerticalOptions="Start" HorizontalOptions="Fill" Grid.Row="0" Grid.RowSpan="6" x:Name="BackgroundImg"/>
 
+				<Grid Grid.Row="0" x:Name="HeaderContainer" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
 				<Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="5, 5, 0, 0" x:Name="FaceBookAccountLayout" >
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="Auto"/>
@@ -19,30 +23,44 @@
 					<ColumnDefinition Width="*"/>
 					<ColumnDefinition Width="Auto"/>
 				</Grid.ColumnDefinitions>
+
 					<local:RoundedImage Grid.Column="0" HeightRequest="80" WidthRequest="80"  x:Name="FacebookPictureImage" IsVisible="false" HorizontalOptions="Start"  />
 					<Label Grid.Column="1" Text="" x:Name="FacebookUser" HorizontalOptions="Start" VerticalOptions="Center"/>
-					<local:RoundedImage Grid.Column="3" HeightRequest="80" WidthRequest="80"  x:Name="FacebookImageButton" Source="facebook.png" HorizontalOptions="EndAndExpand"  />
+					<Grid Grid.Column="2"/>
+					<local:RoundedImage Grid.Column="3" HeightRequest="80" WidthRequest="80"  x:Name="FacebookImageButton" Source="facebook.png" HorizontalOptions="End"  />
 				</Grid>
 
-				<Grid Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center" BackgroundColor="Red">
-					<Image HeightRequest="120" x:Name="HeaderImage" Source="Qookle.jpg" VerticalOptions="Start" HorizontalOptions="Center"/>
+				<Grid Grid.Row="1" Padding="10,0,0,10" VerticalOptions="Center" HorizontalOptions="Center">
+
+
+					<Image HeightRequest="120" x:Name="HeaderImage" Source="Qookle.jpg" VerticalOptions="Center" />
+				
+
+				</Grid>
 				</Grid>
 
-				<Grid VerticalOptions="FillAndExpand"  Padding="8, 0, 8, 0"  Grid.Row="2" >
+				<Grid Grid.Row="1" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" x:Name="BottomContent" Padding="8,0,8,0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
 
-					
-				</Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="Auto"/>
+				</Grid.ColumnDefinitions>
+									
+				<Entry BackgroundColor="White"  VerticalOptions="Start" TextColor="Silver" TextChanged="TextChanged" Placeholder="Inserisci qui gli ingredienti" Text="{Binding TextToSearch}" x:Name="TextEntry"/>
 
-				<StackLayout Padding="8, 0, 8, 0" Grid.Row="3" VerticalOptions="StartAndExpand">
-					<Entry BackgroundColor="White" VerticalOptions="Start" TextColor="Silver" Placeholder="Inserisci qui gli ingredienti" Text="{Binding TextToSearch}" x:Name="TextEntry"/>
-					<local:WrapLayout  x:Name="SelectedIngredientsList" VerticalOptions="FillAndExpand"  Orientation="Horizontal"/>
-					<local:WrapLayout  x:Name="SearchedIngredientsList"  Orientation="Horizontal" />
-				</StackLayout>
+					<local:WrapLayout  x:Name="SelectedIngredientsList"  Grid.Row="1" Orientation="Horizontal" />
+						<local:WrapLayout  x:Name="SearchedIngredientsList"  Grid.Row="2" Orientation="Horizontal" />
 								
-				<Grid Grid.Row="4" x:Name="QookButtonGrid" HeightRequest="100" HorizontalOptions="Center" VerticalOptions="EndAndExpand">
-					<local:RoundedImage Source="Button.jpg" HeightRequest="100" x:Name="QookButton" />
-					
-				</Grid>			
+				<StackLayout Grid.Row="3" x:Name="QookButtonGrid" HorizontalOptions="Center" VerticalOptions="End">
+					<local:RoundedImage Source="Button.jpg" x:Name="QookButton"  />					
+				</StackLayout>	
+				</Grid>		
 			</Grid>		
  </ContentPage.Content>
 </ContentPage>

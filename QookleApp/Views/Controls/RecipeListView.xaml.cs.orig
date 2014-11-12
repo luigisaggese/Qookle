@@ -18,9 +18,8 @@ namespace QookleApp
             {
                 MainRecipeListElementGrid.IsVisible = false;
                 MainAdvertisementGrid.IsVisible = true;
-				MainAdvertisementGrid.Children.Add(new GoogleAdsView());
-				//var sss = DependencyService.Get<IGoogleAdsAdder>().GetGoogleAds();
-				//MainAdvertisementGrid.Children.Add(sss);
+				//var sss = DependencyService.Get<IGoogleAdsAdder>().;
+                MainAdvertisementGrid.Children.Add(new GoogleAdsView());
             }
 	    }
 	}

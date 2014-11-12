@@ -9,6 +9,7 @@ namespace QookleApp
 	public partial class MainPage : ContentPage, IViewModel<MainPageViewModel>
 	{
 		MainPageViewModel ViewModel; 
+
 		string _facebookUserName = "";
 		public string FacebookUserName {
 			get{ 
@@ -48,24 +49,32 @@ namespace QookleApp
 
 		void ResetSelectedList()
 		{
+			var screenHeight = ServiceHelper.GetScreenHeight();
+			var screenWidth = ServiceHelper.GetScreenWidth();
 			SelectedIngredientsList.Children.Clear();
 			foreach(var val in ViewModel.SelectedListOfIngredients)
 			{
 				var item = new SelectedIngredientCellView(this){ BindingContext = val };
 				item.Changed+=SelectedTapped;
 				SelectedIngredientsList.Children.Add (item);
+				MainGrid.LayoutTo(MainGrid.Bounds);// = 0;
+
 			}
 		}
 
 		void ResetSearchedList()
 		{
+			var screenHeight = ServiceHelper.GetScreenHeight();
+			var screenWidth = ServiceHelper.GetScreenWidth();
 			SearchedIngredientsList.Children.Clear();
 			foreach(var val in ViewModel.SearchListOfIngredients)
 			{
 				var item = new SearchedIngredientCellView(this){ BindingContext = val };
 				item.Changed+=SearchTapped;
+				MainGrid.LayoutTo(MainGrid.Bounds);// = 0;
 				SearchedIngredientsList.Children.Add (item);
 			}
+
 		}
 
 		public MainPageViewModel GetCurrentViewModel ()
@@ -78,22 +87,50 @@ namespace QookleApp
 			BindingContext = viewModel;
 		}
 	
+		double _qookButtonHeight = ServiceHelper.GetScreenHeight() / 8;
+
+		void TextChanged(object sender, TextChangedEventArgs e)
+		{
+			if (!string.IsNullOrWhiteSpace (e.NewTextValue)) {
+				if (QookButton.HeightRequest > 0) {
+					QookButton.HeightRequest = 0;
+					HeaderContainer.HeightRequest = 0;
+				}
+			}
+		}
 
 		public MainPage ()
 		{
 			InitializeComponent ();
-			
-			TextEntry.Focused += (sender, e) => {
-				QookButton.HeightRequest = 0;
-				QookButtonGrid.HeightRequest = 0;
-				FaceBookAccountLayout.HeightRequest = 0;
+
+			//HeaderGrid.HeightRequest = 200;
+			var a = HeaderImage;
+			HeaderContainer.HeightRequest = ServiceHelper.ConvertPixelsToDp( (int)((ServiceHelper.GetScreenHeight()  / 2) - ServiceHelper.GetScreenHeight() / 10));
+			BottomContent.HeightRequest = ServiceHelper.ConvertPixelsToDp( (int)((ServiceHelper.GetScreenHeight()  / 2) - ServiceHelper.GetScreenHeight() / 10));
+
+			TextEntry.Focused += async (sender, e) => {
+				var screenHeight = ServiceHelper.GetScreenHeight();
+				var screenWidth = ServiceHelper.GetScreenWidth();
+
+				//QookButtonGrid.HeightRequest = 0;
+				MainGrid.LayoutTo(new Rectangle(new Point(0, - screenHeight / 5), new Size(MainGrid.Width,MainGrid.Height)), 250, Easing.Linear);// = 0;
+
+				//QookButton.HeightRequest = 0;
+				//HeaderContainer.HeightRequest = 0;
 
 			};
-			TextEntry.Unfocused += (sender, e) => {
-				FaceBookAccountLayout.HeightRequest = 80;
-				QookButtonGrid.HeightRequest = 80;
-				QookButton.HeightRequest = 100;
 
+			TextEntry.Unfocused += async (sender, e) => {
+				//FaceBookAccountLayout.HeightRequest = 80;
+				//QookButtonGrid.HeightRequest = 80;
+				QookButton.HeightRequest = _qookButtonHeight;
+				HeaderContainer.HeightRequest = ServiceHelper.ConvertPixelsToDp( (int)((ServiceHelper.GetScreenHeight()  / 2) - ServiceHelper.GetScreenHeight() / 10));
+
+
+				MainGrid.LayoutTo(new Rectangle(new Point(0, 0), new Size(MainGrid.Width,MainGrid.Height)), 250, Easing.Linear);// = 0;
+
+				var screenHeight = ServiceHelper.GetScreenHeight();
+				var screenWidth = ServiceHelper.GetScreenWidth();
 			};
 
 			var tapGestureRecognizer = new TapGestureRecognizer ();
@@ -105,6 +142,10 @@ namespace QookleApp
 			};
 
 			QookButton.GestureRecognizers.Add (tapGestureRecognizer);
+
+			QookButton.HeightRequest = _qookButtonHeight;
+
+			//EntryLayout. = screenHeiht / 2;
 
 			var facebookTapGestureRecognizer = new TapGestureRecognizer ();
 			facebookTapGestureRecognizer.Tapped += async (s, e) => {

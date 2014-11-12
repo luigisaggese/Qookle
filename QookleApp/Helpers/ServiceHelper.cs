@@ -12,6 +12,31 @@ namespace QookleApp
 		{
 			return await DependencyService.Get<IService> ().GetRecipe (parameters,page);
 		}
+
+		public static double GetScreenWidth()
+		{
+			return DependencyService.Get<IService>().GetScreenWidth ();
+		}
+
+		public static double GetScreenHeight()
+		{
+			return DependencyService.Get<IService>().GetScreenHeight ();
+		}
+
+		public static double GetScreenDPIWidth()
+		{
+			return DependencyService.Get<IService>().GetScreenDPIWidth ();
+		}
+
+		public static double GetScreenDPIHeight()
+		{
+			return DependencyService.Get<IService>().GetScreenDPIHeight ();
+		}
+
+		public static int ConvertPixelsToDp(float pixelValue)
+		{
+			return DependencyService.Get<IService>().ConvertPixelsToDp(pixelValue);
+		}
 	}
 }
 

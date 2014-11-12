@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using QookleApp.Android;
+using Android.Util;
+using Android.App;
 
 
 [assembly: Xamarin.Forms.Dependency(typeof(WebServiceHelper))]
@@ -13,6 +15,32 @@ namespace QookleApp.Android
 {
 	public class WebServiceHelper:IService
 	{
+		public double GetScreenDPIHeight ()
+		{
+			return Application.Context.Resources.DisplayMetrics.Ydpi;
+		}
+
+		public double GetScreenDPIWidth ()
+		{
+			return Application.Context.Resources.DisplayMetrics.Xdpi;
+		}
+
+		public double GetScreenWidth ()
+		{
+			return Application.Context.Resources.DisplayMetrics.WidthPixels;
+		}
+
+		public double GetScreenHeight ()
+		{
+			return Application.Context.Resources.DisplayMetrics.HeightPixels;
+		}
+
+		public int ConvertPixelsToDp(float pixelValue)
+		{
+			var dp = (int) ((pixelValue)/ Application.Context.Resources.DisplayMetrics.Density);
+			return dp;
+		}
+
 		#region IService implementation
 
 		async Task<RecipeList> IService.GetRecipe (IEnumerable<string> parameters, int page)

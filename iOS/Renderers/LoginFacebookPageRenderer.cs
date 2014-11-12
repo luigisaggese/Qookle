@@ -15,7 +15,7 @@ namespace QookleApp.iOS
         {
             base.ViewDidAppear (animated);
 
-            // I've used the values from your original post
+			            // I've used the values from your original post
             var auth = new OAuth2Authenticator (
 				clientId: App.OAuthSettings.ClientId,
 				scope: App.OAuthSettings.Scope,

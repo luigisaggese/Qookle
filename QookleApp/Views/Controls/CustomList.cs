@@ -12,6 +12,7 @@ namespace QookleApp
 		{
 			this.ItemTapped += (object sender, ItemTappedEventArgs e) => 
 			{
+				if(e.Item.GetType()==typeof(Recipe))
 				this.Navigation.PushAsync(new RecipeDetailedPage (((Recipe)e.Item)));
 			};
 			this.ItemAppearing+= (sender, e) => {

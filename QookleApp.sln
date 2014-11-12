@@ -205,11 +205,9 @@ Global
 		{95103682-64F6-427C-BD31-9CCF62A78C5A}.Release|Mixed Platforms.ActiveCfg = Release|iPhone
 		{95103682-64F6-427C-BD31-9CCF62A78C5A}.Release|Mixed Platforms.Build.0 = Release|iPhone
 		{95103682-64F6-427C-BD31-9CCF62A78C5A}.Release|x86.ActiveCfg = Release|iPhone
-		<<<<<<< local
-		=======
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Android\QookleApp.Android.csproj
+		StartupItem = iOS\QookleApp.iOS.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

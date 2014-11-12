@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Threading.Tasks;
+using System.Windows;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using QookleApp.WP;
@@ -47,8 +48,37 @@ namespace QookleApp.WP
             return res;
         }
 
-        
-		#endregion
+        public double GetScreenWidth()
+        {
+            return Application.Current.Host.Content.ActualWidth;
+            // throw new NotImplementedException();
+        }
+
+        public double GetScreenHeight()
+        {
+            return Application.Current.Host.Content.ActualHeight;
+            // throw new NotImplementedException();
+        }
+
+        public double GetScreenDPIHeight()
+        {
+            return 1000;
+            // throw new NotImplementedException();
+        }
+
+        public double GetScreenDPIWidth()
+        {
+            return 600;
+            // throw new NotImplementedException();
+        }
+
+        public int ConvertPixelsToDp(float pixelValue)
+        {
+            return (int) pixelValue;
+            //  throw new NotImplementedException();
+        }
+
+        #endregion
 
     }
 
