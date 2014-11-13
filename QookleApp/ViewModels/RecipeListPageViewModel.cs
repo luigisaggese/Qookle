@@ -31,7 +31,7 @@ namespace QookleApp
 
 		List<string> itmz = new List<string> ();
 		public RecipeListPageViewModel (IEnumerable<string> selectedIngredients)
-		{	
+		{	currentPage = 0;
 			itmz = selectedIngredients.ToList();
 			getresult (selectedIngredients,currentPage++);
 		}

@@ -10,6 +10,7 @@ namespace QookleApp
 		public Action OnScrolledToEnd{ get; set; }
 		public CustomList ()
 		{
+			BackgroundColor = Color.Transparent;
 			this.ItemTapped += (object sender, ItemTappedEventArgs e) => 
 			{
 				if(e.Item.GetType()==typeof(Recipe))

@@ -53,5 +53,9 @@ namespace QookleApp
 			get{return "http://g.etfv.co/"+url+"?defaulticon=bluepng"; }
 		}
 
+		public string imgGoodQuality {
+			get{return "http://www.qookle.com/recipe_image?id=" + id + "&cw=640"; }
+		}
+
 	}
 }

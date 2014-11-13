@@ -93,8 +93,8 @@ namespace QookleApp
 		{
 			if (!string.IsNullOrWhiteSpace (e.NewTextValue)) {
 				if (QookButton.HeightRequest > 0) {
-					QookButton.HeightRequest = 0;
-					HeaderContainer.HeightRequest = 0;
+					//QookButton.HeightRequest = 0;
+					//HeaderContainer.HeightRequest = 0;
 				}
 			}
 		}
@@ -113,7 +113,8 @@ namespace QookleApp
 				var screenWidth = ServiceHelper.GetScreenWidth();
 
 				//QookButtonGrid.HeightRequest = 0;
-				MainGrid.LayoutTo(new Rectangle(new Point(0, - screenHeight / 5), new Size(MainGrid.Width,MainGrid.Height)), 250, Easing.Linear);// = 0;
+				//MainGrid.LayoutTo(new Rectangle(new Point(0, - screenHeight / 5), new Size(MainGrid.Width,MainGrid.Height)), 250, Easing.Linear);// = 0;
+				MainGrid.TranslateTo(0, - screenHeight / 5, 250, Easing.Linear);// = 0;
 
 				//QookButton.HeightRequest = 0;
 				//HeaderContainer.HeightRequest = 0;
@@ -123,11 +124,12 @@ namespace QookleApp
 			TextEntry.Unfocused += async (sender, e) => {
 				//FaceBookAccountLayout.HeightRequest = 80;
 				//QookButtonGrid.HeightRequest = 80;
-				QookButton.HeightRequest = _qookButtonHeight;
-				HeaderContainer.HeightRequest = ServiceHelper.ConvertPixelsToDp( (int)((ServiceHelper.GetScreenHeight()  / 2) - ServiceHelper.GetScreenHeight() / 10));
+				//QookButton.HeightRequest = _qookButtonHeight;
+				//HeaderContainer.HeightRequest = ServiceHelper.ConvertPixelsToDp( (int)((ServiceHelper.GetScreenHeight()  / 2) - ServiceHelper.GetScreenHeight() / 10));
 
 
-				MainGrid.LayoutTo(new Rectangle(new Point(0, 0), new Size(MainGrid.Width,MainGrid.Height)), 250, Easing.Linear);// = 0;
+				//MainGrid.LayoutTo(new Rectangle(new Point(0, 0), new Size(MainGrid.Width,MainGrid.Height)), 250, Easing.Linear);// = 0;
+				MainGrid.TranslateTo(0, 0, 250, Easing.Linear);// = 0;
 
 				var screenHeight = ServiceHelper.GetScreenHeight();
 				var screenWidth = ServiceHelper.GetScreenWidth();
@@ -144,6 +146,7 @@ namespace QookleApp
 			QookButton.GestureRecognizers.Add (tapGestureRecognizer);
 
 			QookButton.HeightRequest = _qookButtonHeight;
+			QookButton.WidthRequest = _qookButtonHeight;
 
 			//EntryLayout. = screenHeiht / 2;
 

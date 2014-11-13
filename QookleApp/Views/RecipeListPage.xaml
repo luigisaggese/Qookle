@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="QookleApp.RecipeListPage" xmlns:local="clr-namespace:QookleApp;assembly=QookleApp" BackgroundImage="BackOpacity.jpg">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="QookleApp.RecipeListPage" xmlns:local="clr-namespace:QookleApp;assembly=QookleApp">
 	<ContentPage.Content>
 		<Grid>
 			<Grid.RowDefinitions>
@@ -7,9 +7,14 @@
 				<RowDefinition Height="0"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
             </Grid.ColumnDefinitions>
-                    <local:CustomList Grid.Row="0" Grid.Column="0" HorizontalOptions="Fill"  ItemsSource="{Binding RecipesList}" x:Name="RecipeList1" RowHeight="240"/>
+					
+					<Image Source="BackOpacity.jpg" Aspect="AspectFit" VerticalOptions="Start" HorizontalOptions="FillAndExpand" x:Name="BackImage" Grid.RowSpan="2" Grid.ColumnSpan="3" />
+
+                    <local:CustomList Grid.Row="0" Grid.Column="1" HorizontalOptions="Fill"  ItemsSource="{Binding RecipesList}" x:Name="RecipeList1" RowHeight="250" />
 		</Grid>
 	</ContentPage.Content>
 </ContentPage>

@@ -22,6 +22,7 @@ namespace QookleApp.iOS
 
 		public double GetScreenHeight ()
 		{
+
 			return 480;
 		}
 
