@@ -132,4 +132,7 @@
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\border.png" />
+  </ItemGroup>
 </Project>

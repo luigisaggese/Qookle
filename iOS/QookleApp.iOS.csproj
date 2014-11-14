@@ -80,10 +80,6 @@
     <CodesignProvision>Automatic:AppStore</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GoogleAdMobAds, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>GoogleAds\GoogleAdMobAds.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -103,6 +99,9 @@
     <Reference Include="Xamarin.Auth.iOS">
       <HintPath>..\Components\xamarin.auth-1.2.3\lib\ios\Xamarin.Auth.iOS.dll</HintPath>
     </Reference>
+    <Reference Include="GoogleAdMobAds">
+      <HintPath>GoogleAds\GoogleAdMobAds.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QookleApp\QookleApp.csproj">
@@ -116,6 +115,7 @@
     <BundleResource Include="Resources\Qookle.jpg" />
     <BundleResource Include="Resources\Button.jpg" />
     <BundleResource Include="Resources\facebook.png" />
+    <BundleResource Include="Resources\border.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -149,5 +149,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="GoogleAds\GoogleAdMobAds.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Pic100.png" />
   </ItemGroup>
 </Project>

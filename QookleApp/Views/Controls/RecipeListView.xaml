@@ -4,8 +4,8 @@
         <StackLayout>
             <Grid x:Name="MainRecipeListElementGrid" >
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
                     <RowDefinition Height="200"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -13,15 +13,15 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="Fill" VerticalOptions="Fill">
-                    <local:BorderedImage Source="Pic100.png" Aspect="Fill" HeightRequest="40" WidthRequest="40"/>
 
-                    <!--<local:RoundedImage Source="{Binding publisherimage}" Aspect="Fill" HorizontalOptions="Center"  VerticalOptions="Center"/>-->
+                    <local:RoundedImage Source="{Binding publisherimage}" Aspect="Fill" HorizontalOptions="Center"  VerticalOptions="Center" HeightRequest="40" WidthRequest="40"/>
+                    <local:BorderedImage Source="border.png" Aspect="Fill" HeightRequest="40" WidthRequest="40"/>
                 </Grid>
 
-                <Label Text="{Binding title}" HorizontalOptions="Start" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" Font="Bold,Small" TextColor="Black"/>
-                <Label Text="{Binding publisher}" HorizontalOptions="Start" TextColor="#00A2FF" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" Font="Bold,Small"/>
-                <StackLayout Grid.Row="2" Grid.Column="0"  Grid.ColumnSpan="2" Padding="10, 0, 10, 0">
-                    <Image Source="{Binding imgGoodQuality}" HorizontalOptions="Fill" VerticalOptions="Fill"/>
+                <Label Text="{Binding title}" HorizontalOptions="Start" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" Font="Bold,Medium" TextColor="Black" HeightRequest="18" />
+                <Label Text="{Binding publisher}" HorizontalOptions="Start" TextColor="#00A2FF" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" Font="Bold,Small" HeightRequest="18"/>
+                <StackLayout Grid.Row="2" Grid.Column="0"  Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand">
+                    <Image Source="{Binding imgGoodQuality}" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="Fill" HeightRequest="180"/>
                 </StackLayout>
             </Grid>
 
