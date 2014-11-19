@@ -14,8 +14,8 @@
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="Fill" VerticalOptions="Fill">
 
-                    <local:RoundedImage Source="{Binding publisherimage}" Aspect="Fill" HorizontalOptions="Center"  VerticalOptions="Center" HeightRequest="40" WidthRequest="40"/>
-                    <local:BorderedImage Source="border.png" Aspect="Fill" HeightRequest="40" WidthRequest="40"/>
+                    <!--<local:RoundedImage Source="{Binding publisherimage}" Aspect="Fill" HorizontalOptions="Center"  VerticalOptions="Center" HeightRequest="40" WidthRequest="40"/>-->
+                    <!--<local:BorderedImage Source="border.png" Aspect="Fill" HeightRequest="40" WidthRequest="40"/>-->
                 </Grid>
 
                 <Label Text="{Binding title}" HorizontalOptions="Start" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" Font="Bold,Medium" TextColor="Black" HeightRequest="18" />

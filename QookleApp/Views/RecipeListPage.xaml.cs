@@ -28,6 +28,9 @@ namespace QookleApp
 		{
 			InitializeComponent ();
 			this.SetViewModel (new RecipeListPageViewModel (selectedIngredients));
+
+			this.Title = "Ricette";
+
 			RecipeList1.OnScrolledToEnd = new Action (async () => {
 				this.GetCurrentViewModel().UploadNewItems();
 			});
@@ -36,6 +39,8 @@ namespace QookleApp
 			{
 				if(e.PropertyName=="RecipesList")
 				{
+					this.Title = "Ricette"+"("+ GetCurrentViewModel().RecipesList.Count +")";
+
 					if(!GetCurrentViewModel ().RecipesList.Any())
 					{
 						DisplayAlert ("Ohhh(", "There is no recipes", "Ok");

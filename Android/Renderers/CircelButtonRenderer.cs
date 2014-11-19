@@ -19,6 +19,12 @@ namespace Xamarin.Forms.CircleImage
 			base.OnElementPropertyChanged(sender, e);
 			try
 			{
+				var _asteroidDrawable = (Android.Graphics.Drawables.AnimationDrawable)Resources.GetDrawable(Android.Resource.Drawable.SpinnerBackground);
+
+				ImageView asteroidImage = FindViewById<ImageView>(Resource.Id.imageView2);
+				asteroidImage.SetImageDrawable((Android.Graphics.Drawables.Drawable) _asteroidDrawable);
+
+
 				if (e.PropertyName == Image.IsLoadingProperty.PropertyName && !this.Element.IsLoading
 					&& this.Control.Drawable != null)
 				{

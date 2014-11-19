@@ -52,6 +52,7 @@ namespace QookleApp
 				IsEndOfList = true;
 			}
 
+			OnPropertyChnaged ("RecipesList");
 
 			IsLoading = false;
 		}

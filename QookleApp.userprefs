@@ -1,10 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhoneRetina4.7.1" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="QookleApp/Views/Controls/RecipeListView.xaml">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Android\Renderers\CircelButtonRenderer.cs">
     <Files>
-      <File FileName="iOS/Helpers/WebServiceHelper.cs" Line="1" Column="1" />
-      <File FileName="QookleApp/Models/RecipeList.cs" Line="1" Column="1" />
-      <File FileName="QookleApp/Views/Controls/RecipeListView.xaml" Line="18" Column="104" />
+      <File FileName="iOS\Helpers\WebServiceHelper.cs" Line="1" Column="1" />
+      <File FileName="QookleApp\Models\RecipeList.cs" Line="1" Column="1" />
+      <File FileName="QookleApp\Views\Controls\RecipeListView.xaml" Line="104" Column="104" />
+      <File FileName="Android\Renderers\CircelButtonRenderer.cs" Line="78" Column="78" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

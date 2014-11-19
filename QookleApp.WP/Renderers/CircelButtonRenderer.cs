@@ -25,6 +25,9 @@ namespace Xamarin.Forms.Labs.Droid.Controls.CircleImage
         {
             try
             {
+                var monkey = SK.FromImageNamed("frame-1");
+                monkey.Position = new PointF(Size.Width / 2, Size.Height / 2);
+                AddChild(monkey);
                 base.OnElementPropertyChanged(sender, e);
 
                 if (Control != null && Control.Clip == null)

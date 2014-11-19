@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:drawable="@drawable/Back.jpg" android:duration="100" />
+<item android:drawable="@drawable/Back2.jpg" android:duration="100" />
+<item android:drawable="@drawable/border.png" android:duration="100" />
+<item android:drawable="@drawable/cross.png" android:duration="100" />
+<item android:drawable="@drawable/Qookle.jpg" android:duration="100" />
+</animation-list>

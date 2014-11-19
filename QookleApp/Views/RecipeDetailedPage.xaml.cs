@@ -9,6 +9,8 @@ namespace QookleApp
 		Recipe _recipe;
 		public RecipeDetailedPage (Recipe recipe)
 		{
+			this.Title = recipe.title;
+
 			_recipe = recipe;
 			this.BindingContext = new DetailedRecipeViewModel(recipe);
 

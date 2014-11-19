@@ -19,7 +19,8 @@ namespace QookleApp
 		public static Page GetMainPage ()
 		{	
 			_mainPage = new MainPage ();
-			return new NavigationPage (_mainPage);
+			NavigationPage.SetHasNavigationBar(_mainPage, false);
+			return new NavigationPage(_mainPage);
 		}
 
 		public static Action<string, string> SuccessfulLoginAction

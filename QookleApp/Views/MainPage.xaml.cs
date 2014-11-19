@@ -102,7 +102,7 @@ namespace QookleApp
 		public MainPage ()
 		{
 			InitializeComponent ();
-
+			this.Title = "Ricerca";
 			//HeaderGrid.HeightRequest = 200;
 			var a = HeaderImage;
 			HeaderContainer.HeightRequest = ServiceHelper.ConvertPixelsToDp( (int)((ServiceHelper.GetScreenHeight()  / 2) - ServiceHelper.GetScreenHeight() / 10));
