@@ -99,11 +99,17 @@ namespace QookleApp
 			}
 		}
 
+		async void Authorize()
+		{
+			var rs=await FbAuth.Authorize ();
+		}
+
 		public MainPage ()
 		{
 			InitializeComponent ();
 			this.Title = "Ricerca";
 			//HeaderGrid.HeightRequest = 200;
+			//Authorize ();
 			var a = HeaderImage;
 			HeaderContainer.HeightRequest = ServiceHelper.ConvertPixelsToDp( (int)((ServiceHelper.GetScreenHeight()  / 2) - ServiceHelper.GetScreenHeight() / 10));
 			BottomContent.HeightRequest = ServiceHelper.ConvertPixelsToDp( (int)((ServiceHelper.GetScreenHeight()  / 2) - ServiceHelper.GetScreenHeight() / 10));
@@ -154,16 +160,17 @@ namespace QookleApp
 			facebookTapGestureRecognizer.Tapped += async (s, e) => {
 				if(FacebookUserName != "")
 				{
-					var action = await DisplayActionSheet ("Logged in as " + FacebookUserName, "Log out", "Cancel");
+					/*var action = await DisplayActionSheet ("Logged in as " + FacebookUserName, "Log out", "Cancel");
 					
 					if(action == "Log out")
 					{
 						FacebookUserName = "";
-					}
+					}*/
+
 				}
 				else
-				{
-					await Navigation.PushAsync(new LoginFacebookPage());
+				{await FbAuth.Authorize();
+					//await Navigation.PushAsync(new LoginFacebookPage());
 				}
 
 			};
@@ -189,6 +196,7 @@ namespace QookleApp
 					ResetSelectedList();
 				}
 			};
+		//	this.Content = new GoogleAdsView ();
 		}
 
 	}

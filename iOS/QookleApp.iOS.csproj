@@ -100,7 +100,7 @@
       <HintPath>..\Components\xamarin.auth-1.2.3\lib\ios\Xamarin.Auth.iOS.dll</HintPath>
     </Reference>
     <Reference Include="GoogleAdMobAds">
-      <HintPath>GoogleAds\GoogleAdMobAds.dll</HintPath>
+      <HintPath>..\Components\googleadmob-6.12.0\lib\ios\GoogleAdMobAds.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -115,14 +115,14 @@
     <BundleResource Include="Resources\Qookle.jpg" />
     <BundleResource Include="Resources\Button.jpg" />
     <BundleResource Include="Resources\facebook.png" />
-    <BundleResource Include="Resources\border.png" />
+    <BundleResource Include="Resources\Star.png" />
+    <BundleResource Include="Resources\Star%402x.png" />
+    <BundleResource Include="Resources\cross.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
     <None Include="packages.config" />
-    <None Include="Resources\cross.png" />
-    <None Include="Resources\Star.png" />
     <None Include="Resources\Back.jpg" />
     <None Include="Resources\Back2.jpg" />
   </ItemGroup>
@@ -144,6 +144,10 @@
   <ItemGroup>
     <XamarinComponentReference Include="xamarin.auth">
       <Version>1.2.3</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="googleadmob">
+      <Version>6.12.0</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>

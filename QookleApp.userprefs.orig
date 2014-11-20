@@ -1,12 +1,18 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Android\MainActivity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Android\Renderers\CircelButtonRenderer.cs">
     <Files>
-      <File FileName="Android\MainActivity.cs" Line="1" Column="1" />
+      <File FileName="iOS\Helpers\WebServiceHelper.cs" Line="1" Column="1" />
+      <File FileName="QookleApp\Models\RecipeList.cs" Line="1" Column="1" />
+      <File FileName="QookleApp\Views\Controls\RecipeListView.xaml" Line="104" Column="104" />
+      <File FileName="Android\Renderers\CircelButtonRenderer.cs" Line="78" Column="78" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="D:\Qookle\QookleApp\iOS\Helpers\WebServiceHelper.cs" line="39" column="4" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.QookleApp.Android MonoForAntroid.PreferredDevice="Nexus 4" />
 </Properties>

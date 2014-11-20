@@ -20,7 +20,7 @@ namespace QookleApp.WP.Renderers
 
         public AdsPageRenderer()
         {
-			adView = new GADBannerView(size: GADAdSizeCons.FullBanner)//, origin: new PointF(0, 0))
+			adView = new GADBannerView(size: GADAdSizeCons.LargeBanner)//, origin: new PointF(0, 0))
 			{
 				AdUnitID = "ca-app-pub-2065491276581929/8606629296"
 			};

@@ -1,12 +1,10 @@
 ﻿using System;
-
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-
 using MonoTouch.Foundation;
 using MonoTouch.Accounts;
 using MonoTouch.Foundation;
@@ -45,7 +43,7 @@ namespace QookleApp.iOS
 			var accountType = accountStore.FindAccountType (ACAccountType.Facebook);
 
 			var a = new AccountStoreOptions ();
-			a.FacebookAppId = "299030476966483";
+			a.FacebookAppId = "770654556278592";
 			if (await accountStore.RequestAccessAsync (accountType, a)) {
 				if (accountStore.FindAccounts (accountType).Count () == 0) {
 
