@@ -57,7 +57,7 @@ namespace QookleApp
 				var item = new SelectedIngredientCellView(this){ BindingContext = val };
 				item.Changed+=SelectedTapped;
 				SelectedIngredientsList.Children.Add (item);
-				MainGrid.LayoutTo(MainGrid.Bounds);// = 0;
+				//MainGrid.LayoutTo(MainGrid.Bounds);// = 0;
 
 			}
 		}
@@ -71,7 +71,7 @@ namespace QookleApp
 			{
 				var item = new SearchedIngredientCellView(this){ BindingContext = val };
 				item.Changed+=SearchTapped;
-				MainGrid.LayoutTo(MainGrid.Bounds);// = 0;
+				//MainGrid.LayoutTo(MainGrid.Bounds);// = 0;
 				SearchedIngredientsList.Children.Add (item);
 			}
 
@@ -111,8 +111,8 @@ namespace QookleApp
 			//HeaderGrid.HeightRequest = 200;
 			//Authorize ();
 			var a = HeaderImage;
-			HeaderContainer.HeightRequest = ServiceHelper.ConvertPixelsToDp( (int)((ServiceHelper.GetScreenHeight()  / 2) - ServiceHelper.GetScreenHeight() / 10));
-			BottomContent.HeightRequest = ServiceHelper.ConvertPixelsToDp( (int)((ServiceHelper.GetScreenHeight()  / 2) - ServiceHelper.GetScreenHeight() / 10));
+			//HeaderContainer.HeightRequest = ServiceHelper.ConvertPixelsToDp( (int)((ServiceHelper.GetScreenHeight()  / 2) - ServiceHelper.GetScreenHeight() / 10));
+			//BottomContent.HeightRequest = ServiceHelper.ConvertPixelsToDp( (int)((ServiceHelper.GetScreenHeight()  / 2) - ServiceHelper.GetScreenHeight() / 10));
 
 			TextEntry.Focused += async (sender, e) => {
 				var screenHeight = ServiceHelper.GetScreenHeight();
@@ -120,7 +120,7 @@ namespace QookleApp
 
 				//QookButtonGrid.HeightRequest = 0;
 				//MainGrid.LayoutTo(new Rectangle(new Point(0, - screenHeight / 5), new Size(MainGrid.Width,MainGrid.Height)), 250, Easing.Linear);// = 0;
-				MainGrid.TranslateTo(0, - screenHeight / 5, 250, Easing.Linear);// = 0;
+				//MainGrid.TranslateTo(0, - screenHeight / 5, 250, Easing.Linear);// = 0;
 
 				//QookButton.HeightRequest = 0;
 				//HeaderContainer.HeightRequest = 0;
@@ -135,7 +135,7 @@ namespace QookleApp
 
 
 				//MainGrid.LayoutTo(new Rectangle(new Point(0, 0), new Size(MainGrid.Width,MainGrid.Height)), 250, Easing.Linear);// = 0;
-				MainGrid.TranslateTo(0, 0, 250, Easing.Linear);// = 0;
+				//MainGrid.TranslateTo(0, 0, 250, Easing.Linear);// = 0;
 
 				var screenHeight = ServiceHelper.GetScreenHeight();
 				var screenWidth = ServiceHelper.GetScreenWidth();
