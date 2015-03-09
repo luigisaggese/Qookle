@@ -7,8 +7,8 @@
 				<RowDefinition Height="*"/>
       </Grid.RowDefinitions>
       
-          <Image Source="BackOpacity.jpg" Aspect="AspectFit" VerticalOptions="Start" HorizontalOptions="FillAndExpand" x:Name="BackImage" Grid.Row="0" />
-          <controls:CustomList Grid.Row="0" HorizontalOptions="Fill"  ItemsSource="{Binding RecipesList}" x:Name="RecipeList1" />
+          <Image Source="BackOpacity.jpg" Aspect="AspectFill" VerticalOptions="Start" HorizontalOptions="FillAndExpand" x:Name="BackImage" Grid.Row="0" />
+          <controls:CustomList Grid.Row="0" HorizontalOptions="Fill"  ItemsSource="{Binding RecipesList}" x:Name="RecipeList1" RowHeight="250" />
 		</Grid>
 	</ContentPage.Content>
 </ContentPage>
