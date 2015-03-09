@@ -1,29 +1,30 @@
-﻿using System;
-
-using Android.App;
-using Android.Content;
-using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Android.OS;
-
-using Xamarin.Forms.Platform.Android;
-
-
-namespace QookleApp.Android
+﻿namespace QookleApp.Android
 {
-	[Activity (Label = "Qookle App", Theme="@android:style/Theme.Holo", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-	public class MainActivity : FormsApplicationActivity
-	{
+    using global::Android.App;
+    using global::Android.Content.PM;
+    using global::Android.OS;
+
+    using Xamarin.Forms.Platform.Android;
+
+    /// <summary>
+    /// The main activity.
+    /// </summary>
+    [Activity(Label = "Qookle", Theme = "@android:style/Theme.Holo", 
+        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    public class MainActivity : FormsApplicationActivity
+    {
+        /// <summary>
+        /// The on create.
+        /// </summary>
+        /// <param name="bundle">
+        /// The bundle.
+        /// </param>
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
-            global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App());
+            Xamarin.Forms.Forms.Init(this, bundle);
+            this.LoadApplication(new App());
         }
-	}
-
+    }
 }
-

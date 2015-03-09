@@ -1,26 +1,33 @@
-﻿using Xamarin.Forms;
+﻿namespace QookleApp.Views
+{
+    using Xamarin.Forms;
 
-namespace QookleApp.Views
-{	
-	public partial class RecipeDetailedPage : ContentPage
-	{	
-		Recipe _recipe;
-		public RecipeDetailedPage (Recipe recipe)
-		{
-			this.Title = recipe.title;
+    /// <summary>
+    /// The recipe detailed page.
+    /// </summary>
+    public partial class RecipeDetailedPage : ContentPage
+    {
+        private readonly Recipe _recipe;
 
-			_recipe = recipe;
-			this.BindingContext = new DetailedRecipeViewModel(recipe);
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RecipeDetailedPage"/> class.
+        /// </summary>
+        /// <param name="recipe">
+        /// The recipe.
+        /// </param>
+        public RecipeDetailedPage(Recipe recipe)
+        {
+            this.Title = recipe.title;
 
-			InitializeComponent ();
+            _recipe = recipe;
+            this.BindingContext = new DetailedRecipeViewModel(recipe);
 
-			var tapGestureRecognizer = new TapGestureRecognizer ();
-			tapGestureRecognizer.Tapped += (s, e) => {
-				Navigation.PushAsync(new RecipeViewPage(_recipe.id));
-			};
+            InitializeComponent();
 
-			PrepareButton.GestureRecognizers.Add (tapGestureRecognizer);
-		}
-	}
+            var tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += (s, e) => { Navigation.PushAsync(new RecipeViewPage(_recipe.id)); };
+
+            PrepareButton.GestureRecognizers.Add(tapGestureRecognizer);
+        }
+    }
 }
-

@@ -164,6 +164,7 @@
   <ItemGroup>
     <Content Include="GoogleAds\GoogleAds.dll" />
     <Content Include="GoogleAds\GoogleAds.XML" />
+    <BundleResource Include="Resources\Button_r.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Pic100.png" />

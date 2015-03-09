@@ -1,20 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
-
-using Xamarin.Forms;
-
-namespace QookleApp.iOS
+﻿namespace QookleApp.iOS
 {
+    using MonoTouch.Foundation;
+    using MonoTouch.UIKit;
 
-	[Register ("AppDelegate")]
+    /// <summary>
+    /// The app delegate.
+    /// </summary>
+    [Register("AppDelegate")]
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
-	{
-		UIWindow window;
+    {
+        private UIWindow window;
 
+        /// <summary>
+        /// The finished launching.
+        /// </summary>
+        /// <param name="app">
+        /// The app.
+        /// </param>
+        /// <param name="options">
+        /// The options.
+        /// </param>
+        /// <returns>
+        /// The <see cref="bool"/>.
+        /// </returns>
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
@@ -25,6 +33,5 @@ namespace QookleApp.iOS
 
             return base.FinishedLaunching(app, options);
         }
-	}
+    }
 }
-

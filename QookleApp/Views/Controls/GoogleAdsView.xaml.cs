@@ -1,13 +1,18 @@
-﻿using Xamarin.Forms;
-
-namespace QookleApp.Views.Controls
+﻿namespace QookleApp.Views.Controls
 {
-	public partial class GoogleAdsView : ContentView
-	{
-		public GoogleAdsView ()
-		{
-			InitializeComponent ();
-		}
-	}
-}
+    using Xamarin.Forms;
 
+    /// <summary>
+    /// The google ads view.
+    /// </summary>
+    public partial class GoogleAdsView : ContentView
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GoogleAdsView"/> class.
+        /// </summary>
+        public GoogleAdsView()
+        {
+            InitializeComponent();
+        }
+    }
+}

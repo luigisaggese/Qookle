@@ -1,75 +1,101 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
-using MonoTouch.Foundation;
-using MonoTouch.Accounts;
-using MonoTouch.Foundation;
-using Newtonsoft.Json;
+﻿using QookleApp.iOS;
+
 using Xamarin.Forms;
-using QookleApp.iOS;
+
 [assembly: Dependency(typeof(FacebookLogIn))]
+
 namespace QookleApp.iOS
 {
-	public class FaceBookAccount
-	{
-		public string name {
-			get;
-			set;
-		}
+    using System;
+    using System.Diagnostics;
+    using System.Linq;
+    using System.Threading.Tasks;
 
-		public FaceBookAccount ()
-		{
+    using MonoTouch.Accounts;
 
-		}
-	}
+    /// <summary>
+    /// The face book account.
+    /// </summary>
+    public class FaceBookAccount
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FaceBookAccount"/> class.
+        /// </summary>
+        public FaceBookAccount()
+        {
+        }
 
-	public class FacebookLogIn:IFb{
-		#region IFb implementation
-		ACAccountStore accountStore = new ACAccountStore ();
-		public FacebookLogIn()
-		{
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        public string name { get; set; }
+    }
 
-		}
-		String Name="";
-		public async System.Threading.Tasks.Task<bool> Authorize ()
-		{
-			string oAuthFBKey = "";
+    /// <summary>
+    /// The facebook log in.
+    /// </summary>
+    public class FacebookLogIn : IFb
+    {
+        #region IFb implementation
 
+        private readonly ACAccountStore accountStore = new ACAccountStore();
 
-			var accountType = accountStore.FindAccountType (ACAccountType.Facebook);
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FacebookLogIn"/> class.
+        /// </summary>
+        public FacebookLogIn()
+        {
+        }
 
-			var a = new AccountStoreOptions ();
-			a.FacebookAppId = "770654556278592";
-			if (await accountStore.RequestAccessAsync (accountType, a)) {
-				if (accountStore.FindAccounts (accountType).Count () == 0) {
+        private string Name = string.Empty;
 
-					return false;
-				}
-				ACAccount facebookAccount = accountStore.FindAccounts (accountType).First ();
-				Name = facebookAccount.UserFullName;
-				oAuthFBKey = facebookAccount.Credential.OAuthToken;
+        /// <summary>
+        /// The authorize.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="Task"/>.
+        /// </returns>
+        public async Task<bool> Authorize()
+        {
+            var oAuthFBKey = string.Empty;
 
-				Debug.WriteLine ("begin");
-				Debug.WriteLine (oAuthFBKey);
-				Debug.WriteLine ("end");
-				return true;
-			} else {
-				return false;
-			}
-		}
+            var accountType = accountStore.FindAccountType(ACAccountType.Facebook);
 
-		public string GetName ()
-		{
-			return Name;
-		}
+            var a = new AccountStoreOptions();
+            a.FacebookAppId = "770654556278592";
+            if (await accountStore.RequestAccessAsync(accountType, a))
+            {
+                if (accountStore.FindAccounts(accountType).Count() == 0)
+                {
+                    return false;
+                }
 
-		#endregion
+                var facebookAccount = accountStore.FindAccounts(accountType).First();
+                Name = facebookAccount.UserFullName;
+                oAuthFBKey = facebookAccount.Credential.OAuthToken;
 
+                Debug.WriteLine("begin");
+                Debug.WriteLine(oAuthFBKey);
+                Debug.WriteLine("end");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
-	}
+        /// <summary>
+        /// The get name.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="string"/>.
+        /// </returns>
+        public string GetName()
+        {
+            return Name;
+        }
+
+        #endregion
+    }
 }
-

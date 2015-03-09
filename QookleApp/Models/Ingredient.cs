@@ -1,14 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QookleApp.Models
+﻿namespace QookleApp.Models
 {
+    /// <summary>
+    /// The ingredient.
+    /// </summary>
     public class Ingredient
     {
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the url.
+        /// </summary>
         public string Url { get; set; }
     }
 }

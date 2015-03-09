@@ -1,61 +1,76 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using QookleApp.Views.Controls;
-using Xamarin.Forms;
+﻿namespace QookleApp.Views
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
 
-namespace QookleApp.Views
-{	
-	public partial class RecipeListPage : ContentPage, IViewModel<RecipeListPageViewModel>
-	{	
-		#region IViewModel implementation
+    using QookleApp.Views.Controls;
 
-		public RecipeListPageViewModel GetCurrentViewModel ()
-		{
-			return (RecipeListPageViewModel)this.BindingContext;
-		}
+    using Xamarin.Forms;
 
+    /// <summary>
+    /// The recipe list page.
+    /// </summary>
+    public partial class RecipeListPage : ContentPage, IViewModel<RecipeListPageViewModel>
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RecipeListPage"/> class.
+        /// </summary>
+        /// <param name="selectedIngredients">
+        /// The selected ingredients.
+        /// </param>
+        public RecipeListPage(IEnumerable<string> selectedIngredients)
+        {
+            InitializeComponent();
+            this.SetViewModel(new RecipeListPageViewModel(selectedIngredients));
 
-		public void SetViewModel (RecipeListPageViewModel viewModel)
-		{
-			BindingContext = viewModel;
-		}
+            this.Title = "Ricette";
 
+            RecipeList1.OnScrolledToEnd = new Action(async () => { this.GetCurrentViewModel().UploadNewItems(); });
+            RecipeList1.ItemTemplate = new DataTemplate(typeof(RecipeListViewCell));
+            this.GetCurrentViewModel().PropertyChanged += (sender, e) =>
+                {
+                    if (e.PropertyName == "RecipesList")
+                    {
+                        this.Title = "Ricette" + "(" + GetCurrentViewModel().RecipesList.Count + ")";
 
-		#endregion
+                        if (!GetCurrentViewModel().RecipesList.Any())
+                        {
+                            DisplayAlert("Ohhh(", "There is no recipes", "Ok");
+                            Navigation.PopAsync();
+                        }
+                        else
+                        {
+                            // RAHIT!!
+                        }
+                    }
+                };
+        }
 
-		public RecipeListPage (IEnumerable<string> selectedIngredients)
-		{
-			InitializeComponent ();
-			this.SetViewModel (new RecipeListPageViewModel (selectedIngredients));
+        #region IViewModel implementation
 
-			this.Title = "Ricette";
+        /// <summary>
+        /// The get current view model.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="RecipeListPageViewModel"/>.
+        /// </returns>
+        public RecipeListPageViewModel GetCurrentViewModel()
+        {
+            return (RecipeListPageViewModel)this.BindingContext;
+        }
 
-			RecipeList1.OnScrolledToEnd = new Action (async () => {
-				this.GetCurrentViewModel().UploadNewItems();
-			});
-			RecipeList1.ItemTemplate = new DataTemplate (typeof(RecipeListViewCell));
-			this.GetCurrentViewModel ().PropertyChanged += (sender, e) => 
-			{
-				if(e.PropertyName=="RecipesList")
-				{
-					this.Title = "Ricette"+"("+ GetCurrentViewModel().RecipesList.Count +")";
+        /// <summary>
+        /// The set view model.
+        /// </summary>
+        /// <param name="viewModel">
+        /// The view model.
+        /// </param>
+        public void SetViewModel(RecipeListPageViewModel viewModel)
+        {
+            BindingContext = viewModel;
+        }
 
-					if(!GetCurrentViewModel ().RecipesList.Any())
-					{
-						DisplayAlert ("Ohhh(", "There is no recipes", "Ok");
-						Navigation.PopAsync();
-					}
-					else
-					{
-						///RAHIT!!
-					}
-				}
-
-			};
-
-
-		}
-	}
+        #endregion
+    }
 }
-

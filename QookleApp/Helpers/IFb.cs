@@ -1,31 +1,63 @@
-﻿using System;
-using System.Threading.Tasks;
-using Xamarin.Forms;
-namespace QookleApp
+﻿namespace QookleApp
 {
-	public interface IFb
-	{
-		Task<bool> Authorize ();
-		String GetName ();
-	}
+    using System;
+    using System.Threading.Tasks;
 
-	public class FbAuth
-	{
-		#region IFb implementation
+    using Xamarin.Forms;
 
-		public static async Task<bool> Authorize ()
-		{
-			return await DependencyService.Get<IFb> ().Authorize();
-		}
+    /// <summary>
+    /// The Fb interface.
+    /// </summary>
+    public interface IFb
+    {
+        /// <summary>
+        /// The authorize.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="Task"/>.
+        /// </returns>
+        Task<bool> Authorize();
 
-		public static string GetName ()
-		{
-			throw new NotImplementedException ();
-		}
+        /// <summary>
+        /// The get name.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="string"/>.
+        /// </returns>
+        string GetName();
+    }
 
-		#endregion
+    /// <summary>
+    /// The fb auth.
+    /// </summary>
+    public class FbAuth
+    {
+        #region IFb implementation
 
+        /// <summary>
+        /// The authorize.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="Task"/>.
+        /// </returns>
+        public static async Task<bool> Authorize()
+        {
+            return await DependencyService.Get<IFb>().Authorize();
+        }
 
-	}
+        /// <summary>
+        /// The get name.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="string"/>.
+        /// </returns>
+        /// <exception cref="NotImplementedException">
+        /// </exception>
+        public static string GetName()
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+    }
 }
-

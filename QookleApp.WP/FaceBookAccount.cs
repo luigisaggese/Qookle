@@ -1,32 +1,38 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Windows.Controls;
-using Microsoft.Xna.Framework.Media;
-
-namespace QookleApp.Android
+﻿namespace QookleApp.Android
 {
-	public class FaceBookAccount
-	{
-		public string name {
-			get;
-			set;
-		}
+    /// <summary>
+    /// The face book account.
+    /// </summary>
+    public class FaceBookAccount
+    {
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        public string name { get; set; }
 
+        /// <summary>
+        /// Gets or sets the picture.
+        /// </summary>
         public dynamic picture { get; set; }
-	    
-        public string id { get; set; }
-	}
 
+        /// <summary>
+        /// Gets or sets the id.
+        /// </summary>
+        public string id { get; set; }
+    }
+
+    /// <summary>
+    /// The my picture.
+    /// </summary>
     public class MyPicture
     {
-        object data { get; set; }
+        private object data { get; set; }
     }
 
-    class MyData
+    internal class MyData
     {
-        bool is_silhouette { get; set; }
-        string url { get; set; }
+        private bool is_silhouette { get; set; }
+
+        private string url { get; set; }
     }
 }
-
