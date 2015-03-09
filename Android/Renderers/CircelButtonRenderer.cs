@@ -7,7 +7,10 @@ using Android.Graphics;
 using Xamarin.Forms.Platform.Android;
 using QookleApp.Android;
 using System.ComponentModel;
+using Android.Widget;
+using QookleApp.Views.Controls;
 using Xamarin.Forms.CircleImage;
+using Resource = QookleApp.Android.Resource;
 
 [assembly: ExportRenderer(typeof(RoundedImage), typeof(CircleImageRenderer))]
 namespace Xamarin.Forms.CircleImage
@@ -21,7 +24,7 @@ namespace Xamarin.Forms.CircleImage
 			{
 				var _asteroidDrawable = (Android.Graphics.Drawables.AnimationDrawable)Resources.GetDrawable(Android.Resource.Drawable.SpinnerBackground);
 
-				ImageView asteroidImage = FindViewById<ImageView>(Resource.Id.imageView2);
+			    ImageView asteroidImage = FindViewById<ImageView>(Resource.Id.image);// imageView2);
 				asteroidImage.SetImageDrawable((Android.Graphics.Drawables.Drawable) _asteroidDrawable);
 
 

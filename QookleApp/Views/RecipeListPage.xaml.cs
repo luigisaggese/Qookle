@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Xamarin.Forms;
-using System.Collections;
 using System.Linq;
+using QookleApp.Views.Controls;
+using Xamarin.Forms;
 
-namespace QookleApp
+namespace QookleApp.Views
 {	
 	public partial class RecipeListPage : ContentPage, IViewModel<RecipeListPageViewModel>
 	{	

@@ -10,7 +10,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Navigation;
-using GoogleAds;
 using Microsoft.Phone.Controls;
 using Newtonsoft.Json;
 using QookleApp;
@@ -20,6 +19,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.WinPhone;
 using Page = Xamarin.Forms.Page;
 using System.Windows.Threading;
+using GoogleAds;
+using QookleApp.Views;
 using Thickness = System.Windows.Thickness;
 
 

@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
 using QookleApp;
+using QookleApp.Views.Controls;
 using Xamarin.Forms;
 using Xamarin.Forms.Labs.Droid.Controls.CircleImage;
 using Xamarin.Forms.Platform.WinPhone;
@@ -25,9 +26,10 @@ namespace Xamarin.Forms.Labs.Droid.Controls.CircleImage
         {
             try
             {
-                var monkey = SK.FromImageNamed("frame-1");
-                monkey.Position = new PointF(Size.Width / 2, Size.Height / 2);
-                AddChild(monkey);
+                var monkey =  SK.FromImageNamed("frame-1");
+                monkey.Position = new PointF(this.RenderSize.Width / 2, this.RenderSize.Height / 2);
+                this.Children.Add(monkey);
+
                 base.OnElementPropertyChanged(sender, e);
 
                 if (Control != null && Control.Clip == null)

@@ -2,6 +2,7 @@
 using Xamarin.Forms.Platform.iOS;
 using Xamarin.Forms.Labs.Droid.Controls.CircleImage;
 using QookleApp;
+using QookleApp.Views.Controls;
 using Xamarin.Forms;
 
 [assembly: ExportRenderer(typeof(RoundedImage), typeof(CircleImageRenderer))]

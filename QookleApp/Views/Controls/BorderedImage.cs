@@ -1,7 +1,6 @@
-﻿using System;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
-namespace QookleApp
+namespace QookleApp.Views.Controls
 {
 	public class BorderedImage : Image
 	{

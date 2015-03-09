@@ -11,21 +11,20 @@ namespace QookleApp.iOS
 {
 
 	[Register ("AppDelegate")]
-	public partial class AppDelegate : UIApplicationDelegate
+    public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
 	{
 		UIWindow window;
 
-		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
-		{
-			Forms.Init ();
+        public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+        {
+            global::Xamarin.Forms.Forms.Init();
 
-			window = new UIWindow (UIScreen.MainScreen.Bounds);
-			
-			window.RootViewController = App.GetMainPage ().CreateViewController ();
-			window.MakeKeyAndVisible ();
-			
-			return true;
-		}
+            window = new UIWindow(UIScreen.MainScreen.Bounds);
+
+            LoadApplication(new App());
+
+            return base.FinishedLaunching(app, options);
+        }
 	}
 }
 

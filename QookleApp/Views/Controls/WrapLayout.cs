@@ -2,7 +2,7 @@
 using System.Linq;
 using Xamarin.Forms;
 
-namespace QookleApp
+namespace QookleApp.Views.Controls
 {
 	/// <summary>
 	/// Simple Layout panel which performs wrapping on the boundaries.
@@ -12,23 +12,20 @@ namespace QookleApp
 		/// <summary>
 		/// Backing Storage for the Orientation property
 		/// </summary>
-		public static readonly BindableProperty OrientationProperty = 
-			BindableProperty.Create<WrapLayout, StackOrientation> (w => w.Orientation, StackOrientation.Vertical);
+		private static BindableProperty _orientationProperty ;
 
 		/// <summary>
 		/// Orientation (Horizontal or Vertical)
 		/// </summary>
 		public StackOrientation Orientation {
-			get { return (StackOrientation)GetValue (OrientationProperty); }
-			set { SetValue (OrientationProperty, value); } 
+            get { return (StackOrientation)GetValue(OrientationProperty); }
+            set { SetValue(OrientationProperty, value); } 
 		}
 
 		/// <summary>
 		/// Backing Storage for the Spacing property
 		/// </summary>
-		public static readonly BindableProperty SpacingProperty = 
-		
-			BindableProperty.Create<WrapLayout, double> (w => w.Spacing, 6.0);
+		private static BindableProperty _spacingProperty ;
 
 
 		/// <summary>
@@ -36,11 +33,35 @@ namespace QookleApp
 		/// </summary>
 		/// <value>The spacing.</value>
 		public double Spacing {
-			get { return (double)GetValue (SpacingProperty); }
-			set { SetValue (SpacingProperty, value); } 
+            get { return (double)GetValue(SpacingProperty); }
+            set { SetValue(SpacingProperty, value); } 
 		}
 
-		/// <summary>
+	    /// <summary>
+	    /// Backing Storage for the Spacing property
+	    /// </summary>
+	    public static BindableProperty SpacingProperty
+	    {
+	        get
+	        {
+	            return _spacingProperty ?? (_spacingProperty =
+	                BindableProperty.Create<WrapLayout, double>(w => w.Spacing, 6.0));
+	        }
+	    }
+
+	    /// <summary>
+	    /// Backing Storage for the Orientation property
+	    /// </summary>
+	    public static BindableProperty OrientationProperty
+	    {
+            get
+            {
+                return _orientationProperty ?? (_orientationProperty =
+                    BindableProperty.Create<WrapLayout, StackOrientation>(w => w.Orientation, StackOrientation.Vertical));
+            }
+	    }
+
+	    /// <summary>
 		/// This is called when the spacing or orientation properties are changed - it forces
 		/// the control to go back through a layout pass.
 		/// </summary>

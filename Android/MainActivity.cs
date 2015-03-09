@@ -9,23 +9,20 @@ using Android.Widget;
 using Android.OS;
 
 using Xamarin.Forms.Platform.Android;
-using Xamarin.Forms;
-using Android.Gms.Ads;
 
 
 namespace QookleApp.Android
 {
 	[Activity (Label = "Qookle App", Theme="@android:style/Theme.Holo", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-	public class MainActivity : AndroidActivity
+	public class MainActivity : FormsApplicationActivity
 	{
-		protected override void OnCreate (Bundle bundle)
-		{
-			base.OnCreate (bundle);
+        protected override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate(bundle);
 
-			Xamarin.Forms.Forms.Init (this, bundle);
-
-			SetPage (App.GetMainPage ());
-		}
+            global::Xamarin.Forms.Forms.Init(this, bundle);
+            LoadApplication(new App());
+        }
 	}
 
 }

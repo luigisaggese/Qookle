@@ -1,16 +1,34 @@
-﻿using System;
-using Xamarin.Forms;
-namespace QookleApp
-{
-	public class RoundedImage:Image
-	{
-		public static readonly BindableProperty RadiusProperty=BindableProperty.Create<RoundedImage,double>(img=>img.Radius,0);
-		public double Radius{get{return (double)GetValue (RadiusProperty);}set{SetValue (RadiusProperty, value); }}
+﻿using Xamarin.Forms;
 
-		public RoundedImage ()
-		{
-			Radius = Height / 2;
-		}
-	}
+namespace QookleApp.Views.Controls
+{
+    public class RoundedImage : Image
+    {
+        private double _radius;
+        private static BindableProperty _bindableProperty;
+
+        public double Radius
+        {
+            get { return _radius; }
+            set
+            {
+                _radius = value;
+                SetValue(RadiusProperty, value);
+            }
+        }   
+
+        public static BindableProperty RadiusProperty
+        {
+            get
+            {
+                return _bindableProperty ?? (_bindableProperty = BindableProperty.Create<RoundedImage, double>(img => img.Radius, 0));
+            }
+        }
+
+        public RoundedImage()
+        {
+            Radius = Height/2;
+        }
+    }
 }
 

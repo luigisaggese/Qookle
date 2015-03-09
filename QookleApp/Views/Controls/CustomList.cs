@@ -1,8 +1,9 @@
 ﻿using System;
-using Xamarin.Forms;
 using System.Collections.Generic;
 using System.Linq;
-namespace QookleApp
+using Xamarin.Forms;
+
+namespace QookleApp.Views.Controls
 {
 	public class CustomList:ListView
 	{

@@ -10,6 +10,7 @@ using Xamarin.Forms.Platform.iOS;
 using GoogleAdMobAds;
 using QookleApp;
 using MonoTouch.UIKit;
+using QookleApp.Views.Controls;
 
 [assembly: ExportRenderer(typeof(GoogleAdsView), typeof(AdsPageRenderer))]
 namespace QookleApp.WP.Renderers

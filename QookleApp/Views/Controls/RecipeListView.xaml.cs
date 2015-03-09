@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using Xamarin.Forms;
 
-namespace QookleApp
+namespace QookleApp.Views.Controls
 {
 	public partial class RecipeListView : ContentView
 	{
