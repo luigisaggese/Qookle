@@ -1,86 +1,127 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Net;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-using QookleApp.Android;
-using Android.Util;
-using Android.App;
-
+﻿using QookleApp.Android;
 
 [assembly: Xamarin.Forms.Dependency(typeof(WebServiceHelper))]
+
 namespace QookleApp.Android
 {
-	public class WebServiceHelper:IService
-	{
-		public double GetScreenDPIHeight ()
-		{
-			return Application.Context.Resources.DisplayMetrics.Ydpi;
-		}
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.IO;
+    using System.Net;
+    using System.Threading.Tasks;
 
-		public double GetScreenDPIWidth ()
-		{
-			return Application.Context.Resources.DisplayMetrics.Xdpi;
-		}
+    using global::Android.App;
 
-		public double GetScreenWidth ()
-		{
-			return Application.Context.Resources.DisplayMetrics.WidthPixels;
-		}
+    using Newtonsoft.Json;
 
-		public double GetScreenHeight ()
-		{
-			return Application.Context.Resources.DisplayMetrics.HeightPixels;
-		}
+    /// <summary>
+    /// The web service helper.
+    /// </summary>
+    public class WebServiceHelper : IService
+    {
+        /// <summary>
+        /// The get screen dpi height.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="double"/>.
+        /// </returns>
+        public double GetScreenDPIHeight()
+        {
+            return Application.Context.Resources.DisplayMetrics.Ydpi;
+        }
 
-		public int ConvertPixelsToDp(float pixelValue)
-		{
-			var dp = (int) ((pixelValue)/ Application.Context.Resources.DisplayMetrics.Density);
-			return dp;
-		}
+        /// <summary>
+        /// The get screen dpi width.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="double"/>.
+        /// </returns>
+        public double GetScreenDPIWidth()
+        {
+            return Application.Context.Resources.DisplayMetrics.Xdpi;
+        }
 
-		#region IService implementation
+        /// <summary>
+        /// The get screen width.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="double"/>.
+        /// </returns>
+        public double GetScreenWidth()
+        {
+            return Application.Context.Resources.DisplayMetrics.WidthPixels;
+        }
 
-		async Task<RecipeList> IService.GetRecipe (IEnumerable<string> parameters, int page)
-		{
+        /// <summary>
+        /// The get screen height.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="double"/>.
+        /// </returns>
+        public double GetScreenHeight()
+        {
+            return Application.Context.Resources.DisplayMetrics.HeightPixels;
+        }
 
-			try 
-			{
-				String requestString = "https://qookle-com.appspot.com/_ah/api/qookle/v1/search?";
-				requestString+="offset="+page.ToString();
+        /// <summary>
+        /// The convert pixels to dp.
+        /// </summary>
+        /// <param name="pixelValue">
+        /// The pixel value.
+        /// </param>
+        /// <returns>
+        /// The <see cref="int"/>.
+        /// </returns>
+        public int ConvertPixelsToDp(float pixelValue)
+        {
+            var dp = (int)(pixelValue / Application.Context.Resources.DisplayMetrics.Density);
+            return dp;
+        }
 
-				foreach(var par in parameters){
-					requestString+="&search="+par;
-				}
+        #region IService implementation
 
-				Debug.WriteLine("url="+requestString);
-				var request = WebRequest.Create (requestString) as HttpWebRequest;
-				request.Method = "POST";
-				//url=https://qookle-com.appspot.com/_ah/api/qookle/v1/search?offset=0&search=pasta
-				request.ContentType = "application/json";
-				//request.
-				request.ContentLength = 0;
-				String jsonRes = "";
+        async Task<RecipeList> IService.GetRecipe(IEnumerable<string> parameters, int page)
+        {
+            try
+            {
+                var requestString = "https://qookle-com.appspot.com/_ah/api/qookle/v1/search?";
+                requestString += "offset=" + page.ToString();
 
-				WebResponse responce = await request.GetResponseAsync ().ConfigureAwait (false);
-				using (var reader = new StreamReader (responce.GetResponseStream ())) {
-					jsonRes = reader.ReadToEnd ();				
-				}
-				Debug.WriteLine("SoeData="+jsonRes);
-				var res = JsonConvert.DeserializeObject<RecipeList> (jsonRes);
+                foreach (var par in parameters)
+                {
+                    requestString += "&search=" + par;
+                }
 
-				return res;
-			}
+                Debug.WriteLine("url=" + requestString);
+                var request = WebRequest.Create(requestString) as HttpWebRequest;
+                request.Method = "POST";
 
-			catch (Exception ex) {
-				Debug.WriteLine ("SOOOOOOOOOSNNOOOLEY!!!!: " + ex.Message);
-				return new RecipeList();
-			}
+                // url=https://qookle-com.appspot.com/_ah/api/qookle/v1/search?offset=0&search=pasta
+                request.ContentType = "application/json";
 
-		}
+                // request.
+                request.ContentLength = 0;
+                var jsonRes = string.Empty;
 
-		#endregion
-	}
+                var responce = await request.GetResponseAsync().ConfigureAwait(false);
+                using (var reader = new StreamReader(responce.GetResponseStream()))
+                {
+                    jsonRes = reader.ReadToEnd();
+                }
+
+                Debug.WriteLine("SoeData=" + jsonRes);
+                var res = JsonConvert.DeserializeObject<RecipeList>(jsonRes);
+
+                return res;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("SOOOOOOOOOSNNOOOLEY!!!!: " + ex.Message);
+                return new RecipeList();
+            }
+        }
+
+        #endregion
+    }
 }

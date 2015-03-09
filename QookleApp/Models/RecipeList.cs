@@ -1,24 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace QookleApp
+﻿namespace QookleApp
 {
-	public class RecipeList
-	{
-		public IEnumerable<Recipe> items {
-			get;
-			set;
-		}
+    using System.Collections.Generic;
 
-		public string kind {
-			get;
-			set;
-		}
+    /// <summary>
+    /// The recipe list.
+    /// </summary>
+    public class RecipeList
+    {
+        /// <summary>
+        /// Gets or sets the items.
+        /// </summary>
+        public IEnumerable<Recipe> items { get; set; }
 
-		public string etag {
-			get;
-			set;
-		}
-	}
+        /// <summary>
+        /// Gets or sets the kind.
+        /// </summary>
+        public string kind { get; set; }
+
+        /// <summary>
+        /// Gets or sets the etag.
+        /// </summary>
+        public string etag { get; set; }
+    }
 }
-

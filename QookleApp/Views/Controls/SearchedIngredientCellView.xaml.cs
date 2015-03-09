@@ -1,31 +1,57 @@
-﻿using System;
-using Xamarin.Forms;
-
-namespace QookleApp.Views.Controls
+﻿namespace QookleApp.Views.Controls
 {
-	public partial class SearchedIngredientCellView : ContentView
-	{
-		public delegate void ChangedEventHandler(object sender, EventArgs e);
+    using System;
 
-		public event ChangedEventHandler Changed;
+    using Xamarin.Forms;
 
-		public SearchedIngredientCellView (MainPageView owner)
-		{
-			InitializeComponent ();
-			var tapGestureRecognizer = new TapGestureRecognizer ();
-			tapGestureRecognizer.Tapped += (s, e) => {
-				OnChanged(e);
-			};
-			TapLabel.GestureRecognizers.Add (tapGestureRecognizer);
+    /// <summary>
+    /// The searched ingredient cell view.
+    /// </summary>
+    public partial class SearchedIngredientCellView : ContentView
+    {
+        /// <summary>
+        /// The changed event handler.
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">
+        /// The e.
+        /// </param>
+        public delegate void ChangedEventHandler(object sender, EventArgs e);
 
-		}
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SearchedIngredientCellView"/> class.
+        /// </summary>
+        /// <param name="owner">
+        /// The owner.
+        /// </param>
+        public SearchedIngredientCellView(MainPageView owner)
+        {
+            InitializeComponent();
+            var tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += (s, e) => { OnChanged(e); };
+            TapLabel.GestureRecognizers.Add(tapGestureRecognizer);
+        }
 
-		// Invoke the Changed event; called whenever list changes
-		protected virtual void OnChanged(EventArgs e) 
-		{
-			if (Changed != null)
-				Changed(this, e);
-		}
-	}
+        /// <summary>
+        /// The changed.
+        /// </summary>
+        public event ChangedEventHandler Changed;
+
+        // Invoke the Changed event; called whenever list changes
+        /// <summary>
+        /// The on changed.
+        /// </summary>
+        /// <param name="e">
+        /// The e.
+        /// </param>
+        protected virtual void OnChanged(EventArgs e)
+        {
+            if (Changed != null)
+            {
+                Changed(this, e);
+            }
+        }
+    }
 }
-

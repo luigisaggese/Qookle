@@ -1,18 +1,20 @@
-﻿using System;
-
-namespace QookleApp.Android
+﻿namespace QookleApp.Android
 {
-	public class FaceBookAccount
-	{
-		public string name {
-			get;
-			set;
-		}
+    /// <summary>
+    /// The face book account.
+    /// </summary>
+    public class FaceBookAccount
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FaceBookAccount"/> class.
+        /// </summary>
+        public FaceBookAccount()
+        {
+        }
 
-		public FaceBookAccount ()
-		{
-
-		}
-	}
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        public string name { get; set; }
+    }
 }
-

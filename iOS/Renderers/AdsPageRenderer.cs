@@ -1,47 +1,55 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using QookleApp.Views.Controls;
 using QookleApp.WP.Renderers;
+
 using Xamarin.Forms;
-using Xamarin.Forms.Platform.iOS;
-using GoogleAdMobAds;
-using QookleApp;
-using MonoTouch.UIKit;
-using QookleApp.Views.Controls;
 
 [assembly: ExportRenderer(typeof(GoogleAdsView), typeof(AdsPageRenderer))]
+
 namespace QookleApp.WP.Renderers
 {
-	class AdsPageRenderer : ViewRenderer<GoogleAdsView,UIView>
-    {
-        GADBannerView adView;
+    using GoogleAdMobAds;
 
+    using MonoTouch.UIKit;
+
+    using QookleApp.Views.Controls;
+
+    using Xamarin.Forms.Platform.iOS;
+
+    internal class AdsPageRenderer : ViewRenderer<GoogleAdsView, UIView>
+    {
+        private readonly GADBannerView adView;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AdsPageRenderer"/> class.
+        /// </summary>
         public AdsPageRenderer()
         {
-			adView = new GADBannerView(size: GADAdSizeCons.LargeBanner)//, origin: new PointF(0, 0))
-			{
-				AdUnitID = "ca-app-pub-2065491276581929/8606629296"
-			};
+            adView = new GADBannerView(size: GADAdSizeCons.LargeBanner)
+                         {
+                             AdUnitID =
+                                 "ca-app-pub-2065491276581929/8606629296"
+                         };
 
+            // , origin: new PointF(0, 0))
 
-			//var s = this;
-			//this.BackgroundColor = MonoTouch.UIKit.UIColor.Blue;
-			//this.Control.Add (adView);
-			//this//Control.Add (adView);// = MonoTouch.UIKit.UIColor.Blue;
-
-			adView.LoadRequest(GADRequest.Request);
-			adView.BackgroundColor = Color.Aqua.ToUIColor();
-
-
+            // var s = this;
+            // this.BackgroundColor = MonoTouch.UIKit.UIColor.Blue;
+            // this.Control.Add (adView);
+            // this//Control.Add (adView);// = MonoTouch.UIKit.UIColor.Blue;
+            adView.LoadRequest(GADRequest.Request);
+            adView.BackgroundColor = Color.Aqua.ToUIColor();
         }
-		protected override void OnElementChanged (ElementChangedEventArgs<GoogleAdsView> e)
-		{
-			base.OnElementChanged (e);
-			base.SetNativeControl (adView);
-		}
 
+        /// <summary>
+        /// The on element changed.
+        /// </summary>
+        /// <param name="e">
+        /// The e.
+        /// </param>
+        protected override void OnElementChanged(ElementChangedEventArgs<GoogleAdsView> e)
+        {
+            base.OnElementChanged(e);
+            this.SetNativeControl(adView);
+        }
     }
 }

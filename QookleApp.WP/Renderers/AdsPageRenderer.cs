@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using QookleApp;
-using QookleApp.WP.Renderers;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.WinPhone;
+﻿ //[assembly: ExportRenderer(typeof(GoogleAdsView), typeof(AdsPageRenderer))]
 
-//[assembly: ExportRenderer(typeof(GoogleAdsView), typeof(AdsPageRenderer))]
 namespace QookleApp.WP.Renderers
-{/*
+{ /*
     class AdsPageRenderer : ViewRenderer
     {
         public AdsPageRenderer()
