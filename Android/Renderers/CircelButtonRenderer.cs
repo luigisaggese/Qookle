@@ -36,12 +36,11 @@ namespace Xamarin.Forms.CircleImage
             base.OnElementPropertyChanged(sender, e);
             try
             {
-                var _asteroidDrawable =
-                    (Android.Graphics.Drawables.AnimationDrawable)
-                    Resources.GetDrawable(Android.Resource.Drawable.SpinnerBackground);
+                var asteroidDrawable =
+                    (Android.Graphics.Drawables.AnimationDrawable)this.Resources.GetDrawable(Android.Resource.Drawable.SpinnerBackground);
 
-                var asteroidImage = FindViewById<ImageView>(Resource.Id.image); // imageView2);
-                asteroidImage.SetImageDrawable((Android.Graphics.Drawables.Drawable)_asteroidDrawable);
+                var asteroidImage = this.FindViewById<ImageView>(Resource.Id.image); // imageView2);
+                asteroidImage.SetImageDrawable((Android.Graphics.Drawables.Drawable)asteroidDrawable);
 
                 if (e.PropertyName == Image.IsLoadingProperty.PropertyName && !this.Element.IsLoading
                     && this.Control.Drawable != null)
@@ -70,7 +69,7 @@ namespace Xamarin.Forms.CircleImage
             // May need some scaling code
             if (sourceBitmap != null)
             {
-                var sourceRect = GetScaledRect(sourceBitmap);
+                var sourceRect = this.GetScaledRect(sourceBitmap);
                 var rect = this.GetTargetRect(sourceBitmap);
                 using (var output = Bitmap.CreateBitmap(rect.Width(), rect.Height(), Bitmap.Config.Argb8888))
                 {
@@ -83,7 +82,7 @@ namespace Xamarin.Forms.CircleImage
 
                     paint.AntiAlias = true;
                     canvas.DrawARGB(0, 0, 0, 0);
-                    paint.Color = Android.Graphics.Color.ParseColor("#ff424242");
+                    paint.Color = Color.ParseColor("#ff424242");
                     canvas.DrawRoundRect(rectF, roundRx, roundRy, paint);
 
                     paint.SetXfermode(new PorterDuffXfermode(PorterDuff.Mode.SrcIn));
@@ -151,10 +150,10 @@ namespace Xamarin.Forms.CircleImage
             var width = 0;
 
             height = this.Element.HeightRequest > 0
-                         ? (int)System.Math.Round(this.Element.HeightRequest, 0)
+                         ? (int)Math.Round(this.Element.HeightRequest, 0)
                          : sourceBitmap.Height;
             width = this.Element.WidthRequest > 0
-                        ? (int)System.Math.Round(this.Element.WidthRequest, 0)
+                        ? (int)Math.Round(this.Element.WidthRequest, 0)
                         : sourceBitmap.Width;
 
             // Make Square

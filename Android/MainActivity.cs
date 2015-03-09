@@ -9,7 +9,7 @@
     /// <summary>
     /// The main activity.
     /// </summary>
-    [Activity(Label = "Qookle App", Theme = "@android:style/Theme.Holo", 
+    [Activity(Label = "Qookle", Theme = "@android:style/Theme.Holo", 
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : FormsApplicationActivity
     {
@@ -23,8 +23,8 @@
         {
             base.OnCreate(bundle);
 
-            global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App());
+            Xamarin.Forms.Forms.Init(this, bundle);
+            this.LoadApplication(new App());
         }
     }
 }

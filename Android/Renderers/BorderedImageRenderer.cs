@@ -1,4 +1,12 @@
-﻿using QookleApp.Views.Controls;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="BorderedImageRenderer.cs" company="">
+//   
+// </copyright>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using QookleApp.Views.Controls;
 
 using Xamarin.Forms;
 using Xamarin.Forms.BorderedImage;
@@ -53,7 +61,7 @@ namespace Xamarin.Forms.BorderedImage
             // May need some scaling code
             if (sourceBitmap != null)
             {
-                var sourceRect = GetScaledRect(sourceBitmap);
+                var sourceRect = this.GetScaledRect(sourceBitmap);
                 var rect = this.GetTargetRect(sourceBitmap);
 
                 using (var output = Bitmap.CreateBitmap(rect.Width(), rect.Height(), Bitmap.Config.Argb8888))
@@ -67,15 +75,15 @@ namespace Xamarin.Forms.BorderedImage
 
                     paint.AntiAlias = true;
                     canvas.DrawARGB(0, 0, 0, 0);
-                    paint.Color = Android.Graphics.Color.ParseColor("#ff424242");
+                    paint.Color = Color.ParseColor("#ff424242");
                     canvas.DrawRoundRect(rectF, roundRx, roundRy, paint);
 
                     paint.SetXfermode(new PorterDuffXfermode(PorterDuff.Mode.SrcIn));
 
                     // canvas.DrawBitmap(sourceBitmap, sourceRect, rect, paint);
-                    var circlePaint = new Android.Graphics.Paint() { Color = Android.Graphics.Color.White };
+                    var circlePaint = new Paint() { Color = Color.White };
                     canvas.DrawCircle(rect.Width() / 2, rect.Height() / 2, rect.Height() / 2, circlePaint);
-                    circlePaint.Color = Android.Graphics.Color.Black;
+                    circlePaint.Color = Color.Black;
                     circlePaint.SetStyle(Paint.Style.Stroke);
                     circlePaint.StrokeWidth = 2;
                     canvas.DrawCircle(rect.Width() / 2, rect.Height() / 2, rect.Height() / 2, circlePaint);

@@ -2,23 +2,21 @@
 {
     using Microsoft.Phone.Controls;
 
+    using Xamarin.Forms;
+    using Xamarin.Forms.Platform.WinPhone;
+
     /// <summary>
     /// The main page.
     /// </summary>
-    public partial class MainPage : PhoneApplicationPage
+    public partial class MainPage : FormsApplicationPage
     {
-        // Constructor
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MainPage"/> class.
-        /// </summary>
         public MainPage()
         {
             InitializeComponent();
-            Forms.Init();
-            this.Content = QookleApp.App.GetMainPage().ConvertPageToUIElement(this);
+            SupportedOrientations = SupportedPageOrientation.PortraitOrLandscape;
 
-            // Sample code to localize the ApplicationBar
-            // BuildLocalizedApplicationBar();
+            global::Xamarin.Forms.Forms.Init();
+            LoadApplication(new QookleApp.App());
         }
     }
 }

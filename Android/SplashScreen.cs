@@ -7,7 +7,7 @@
     /// <summary>
     /// The splash screen.
     /// </summary>
-    [Activity(Label = "MyApp", MainLauncher = true, NoHistory = true, Theme = "@style/Theme.Splash")]
+    [Activity(Label = "Qookle", MainLauncher = true, NoHistory = true, Theme = "@style/Theme.Splash")]
     public class SplashScreen : Activity
     {
         /// <summary>
@@ -21,8 +21,8 @@
             base.OnCreate(bundle);
 
             var intent = new Intent(this, typeof(MainActivity));
-            StartActivity(intent);
-            Finish();
+            this.StartActivity(intent);
+            this.Finish();
         }
     }
 }

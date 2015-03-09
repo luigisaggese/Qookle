@@ -1,5 +1,6 @@
 ﻿using QookleApp.Views.Controls;
 
+using Xamarin.Forms;
 using Xamarin.Forms.Labs.Droid.Controls.CircleImage;
 
 [assembly: ExportRenderer(typeof(RoundedImage), typeof(CircleImageRenderer))]
@@ -9,6 +10,8 @@ namespace Xamarin.Forms.Labs.Droid.Controls.CircleImage
     using System;
     using System.ComponentModel;
     using System.Windows.Media;
+
+    using Xamarin.Forms.Platform.WinPhone;
 
     /// <summary>
     /// The circle image renderer.
@@ -48,9 +51,9 @@ namespace Xamarin.Forms.Labs.Droid.Controls.CircleImage
         {
             try
             {
-                var monkey = SK.FromImageNamed("frame-1");
-                monkey.Position = new PointF(this.RenderSize.Width / 2, this.RenderSize.Height / 2);
-                this.Children.Add(monkey);
+                // var monkey = SK.FromImageNamed("frame-1");
+                // monkey.Position = new PointF(this.RenderSize.Width / 2, this.RenderSize.Height / 2);
+                // this.Children.Add(monkey);
 
                 base.OnElementPropertyChanged(sender, e);
 

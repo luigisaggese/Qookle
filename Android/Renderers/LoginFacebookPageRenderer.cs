@@ -26,14 +26,14 @@ namespace QookleApp.Android
         /// </summary>
         public LoginFacebookPageRenderer()
         {
-            RenderLoginPage();
+            this.RenderLoginPage();
         }
 
         private void RenderLoginPage()
         {
-            if (!isShown)
+            if (!this.isShown)
             {
-                isShown = true;
+                this.isShown = true;
 
                 var activity = this.Context as Activity;
 

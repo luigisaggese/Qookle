@@ -1,6 +1,8 @@
 ﻿using QookleApp.Views;
 using QookleApp.WP.Renderers;
 
+using Xamarin.Forms;
+
 using Page = Xamarin.Forms.Page;
 
 [assembly: ExportRenderer(typeof(LoginFacebookPage), typeof(LoginFacebookPageRenderer))]
@@ -23,6 +25,8 @@ namespace QookleApp.WP.Renderers
     using Newtonsoft.Json.Linq;
 
     using QookleApp.Android;
+
+    using Xamarin.Forms.Platform.WinPhone;
 
     /// <summary>
     /// The login facebook page renderer.

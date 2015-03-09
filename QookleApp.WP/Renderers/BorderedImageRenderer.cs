@@ -1,5 +1,6 @@
 ﻿using QookleApp.Views.Controls;
 
+using Xamarin.Forms;
 using Xamarin.Forms.BorderedImage;
 
 [assembly: ExportRenderer(typeof(BorderedImage), typeof(BorderedImageRenderer))]
@@ -9,6 +10,8 @@ namespace Xamarin.Forms.BorderedImage
     using System;
     using System.ComponentModel;
     using System.Windows.Media;
+
+    using Xamarin.Forms.Platform.WinPhone;
 
     /// <summary>
     /// The bordered image renderer.

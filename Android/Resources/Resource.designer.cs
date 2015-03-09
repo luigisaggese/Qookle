@@ -1126,88 +1126,91 @@ namespace QookleApp.Android
 			public const int Button = 2130837559;
 			
 			// aapt resource value: 0x7f020038
-			public const int cross = 2130837560;
+			public const int Button_r = 2130837560;
 			
 			// aapt resource value: 0x7f020039
-			public const int facebook = 2130837561;
+			public const int cross = 2130837561;
 			
 			// aapt resource value: 0x7f02003a
-			public const int Icon = 2130837562;
+			public const int facebook = 2130837562;
 			
 			// aapt resource value: 0x7f02003b
-			public const int monoandroidsplash = 2130837563;
+			public const int Icon = 2130837563;
 			
 			// aapt resource value: 0x7f02003c
-			public const int mr_ic_audio_vol = 2130837564;
+			public const int monoandroidsplash = 2130837564;
 			
 			// aapt resource value: 0x7f02003d
-			public const int mr_ic_media_route_connecting_holo_dark = 2130837565;
+			public const int mr_ic_audio_vol = 2130837565;
 			
 			// aapt resource value: 0x7f02003e
-			public const int mr_ic_media_route_connecting_holo_light = 2130837566;
+			public const int mr_ic_media_route_connecting_holo_dark = 2130837566;
 			
 			// aapt resource value: 0x7f02003f
-			public const int mr_ic_media_route_disabled_holo_dark = 2130837567;
+			public const int mr_ic_media_route_connecting_holo_light = 2130837567;
 			
 			// aapt resource value: 0x7f020040
-			public const int mr_ic_media_route_disabled_holo_light = 2130837568;
+			public const int mr_ic_media_route_disabled_holo_dark = 2130837568;
 			
 			// aapt resource value: 0x7f020041
-			public const int mr_ic_media_route_holo_dark = 2130837569;
+			public const int mr_ic_media_route_disabled_holo_light = 2130837569;
 			
 			// aapt resource value: 0x7f020042
-			public const int mr_ic_media_route_holo_light = 2130837570;
+			public const int mr_ic_media_route_holo_dark = 2130837570;
 			
 			// aapt resource value: 0x7f020043
-			public const int mr_ic_media_route_off_holo_dark = 2130837571;
+			public const int mr_ic_media_route_holo_light = 2130837571;
 			
 			// aapt resource value: 0x7f020044
-			public const int mr_ic_media_route_off_holo_light = 2130837572;
+			public const int mr_ic_media_route_off_holo_dark = 2130837572;
 			
 			// aapt resource value: 0x7f020045
-			public const int mr_ic_media_route_on_0_holo_dark = 2130837573;
+			public const int mr_ic_media_route_off_holo_light = 2130837573;
 			
 			// aapt resource value: 0x7f020046
-			public const int mr_ic_media_route_on_0_holo_light = 2130837574;
+			public const int mr_ic_media_route_on_0_holo_dark = 2130837574;
 			
 			// aapt resource value: 0x7f020047
-			public const int mr_ic_media_route_on_1_holo_dark = 2130837575;
+			public const int mr_ic_media_route_on_0_holo_light = 2130837575;
 			
 			// aapt resource value: 0x7f020048
-			public const int mr_ic_media_route_on_1_holo_light = 2130837576;
+			public const int mr_ic_media_route_on_1_holo_dark = 2130837576;
 			
 			// aapt resource value: 0x7f020049
-			public const int mr_ic_media_route_on_2_holo_dark = 2130837577;
+			public const int mr_ic_media_route_on_1_holo_light = 2130837577;
 			
 			// aapt resource value: 0x7f02004a
-			public const int mr_ic_media_route_on_2_holo_light = 2130837578;
+			public const int mr_ic_media_route_on_2_holo_dark = 2130837578;
 			
 			// aapt resource value: 0x7f02004b
-			public const int mr_ic_media_route_on_holo_dark = 2130837579;
+			public const int mr_ic_media_route_on_2_holo_light = 2130837579;
 			
 			// aapt resource value: 0x7f02004c
-			public const int mr_ic_media_route_on_holo_light = 2130837580;
+			public const int mr_ic_media_route_on_holo_dark = 2130837580;
 			
 			// aapt resource value: 0x7f02004d
-			public const int Pic100 = 2130837581;
+			public const int mr_ic_media_route_on_holo_light = 2130837581;
 			
 			// aapt resource value: 0x7f02004e
-			public const int Qookle = 2130837582;
+			public const int Pic100 = 2130837582;
 			
 			// aapt resource value: 0x7f02004f
-			public const int Splash = 2130837583;
+			public const int Qookle = 2130837583;
 			
 			// aapt resource value: 0x7f020050
-			public const int SplashScreen = 2130837584;
+			public const int Splash = 2130837584;
 			
 			// aapt resource value: 0x7f020051
-			public const int Star = 2130837585;
+			public const int SplashScreen = 2130837585;
 			
 			// aapt resource value: 0x7f020052
-			public const int StarScreen = 2130837586;
+			public const int Star = 2130837586;
 			
 			// aapt resource value: 0x7f020053
-			public const int StartScreen = 2130837587;
+			public const int StarScreen = 2130837587;
+			
+			// aapt resource value: 0x7f020054
+			public const int StartScreen = 2130837588;
 			
 			static Drawable()
 			{
@@ -1324,26 +1327,23 @@ namespace QookleApp.Android
 			// aapt resource value: 0x7f0a0025
 			public const int list_item = 2131361829;
 			
-			// aapt resource value: 0x7f0a0043
-			public const int media_route_control_frame = 2131361859;
+			// aapt resource value: 0x7f0a0042
+			public const int media_route_control_frame = 2131361858;
 			
-			// aapt resource value: 0x7f0a0044
-			public const int media_route_disconnect_button = 2131361860;
+			// aapt resource value: 0x7f0a0043
+			public const int media_route_disconnect_button = 2131361859;
+			
+			// aapt resource value: 0x7f0a003f
+			public const int media_route_list = 2131361855;
 			
 			// aapt resource value: 0x7f0a0040
-			public const int media_route_list = 2131361856;
+			public const int media_route_volume_layout = 2131361856;
 			
 			// aapt resource value: 0x7f0a0041
-			public const int media_route_volume_layout = 2131361857;
-			
-			// aapt resource value: 0x7f0a0042
-			public const int media_route_volume_slider = 2131361858;
+			public const int media_route_volume_slider = 2131361857;
 			
 			// aapt resource value: 0x7f0a0015
 			public const int middle = 2131361813;
-			
-			// aapt resource value: 0x7f0a003f
-			public const int myButton = 2131361855;
 			
 			// aapt resource value: 0x7f0a0019
 			public const int never = 2131361817;
@@ -1528,19 +1528,16 @@ namespace QookleApp.Android
 			public const int abc_simple_dropdown_hint = 2130903062;
 			
 			// aapt resource value: 0x7f030017
-			public const int Main = 2130903063;
+			public const int mr_media_route_chooser_dialog = 2130903063;
 			
 			// aapt resource value: 0x7f030018
-			public const int mr_media_route_chooser_dialog = 2130903064;
+			public const int mr_media_route_controller_dialog = 2130903064;
 			
 			// aapt resource value: 0x7f030019
-			public const int mr_media_route_controller_dialog = 2130903065;
+			public const int mr_media_route_list_item = 2130903065;
 			
 			// aapt resource value: 0x7f03001a
-			public const int mr_media_route_list_item = 2130903066;
-			
-			// aapt resource value: 0x7f03001b
-			public const int support_simple_spinner_dropdown_item = 2130903067;
+			public const int support_simple_spinner_dropdown_item = 2130903066;
 			
 			static Layout()
 			{

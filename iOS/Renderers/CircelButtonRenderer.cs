@@ -30,8 +30,8 @@ namespace Xamarin.Forms.Labs.Droid.Controls.CircleImage
             {
                 var im = (RoundedImage)this.Element;
                 var imview = this.Control;
-                imview.ContentMode = MonoTouch.UIKit.UIViewContentMode.ScaleToFill;
-                imview.Layer.CornerRadius = imview.Layer.Frame.Height / 2;
+                imview.ContentMode = MonoTouch.UIKit.UIViewContentMode.ScaleAspectFill;
+                imview.Layer.CornerRadius = imview.Layer.Frame.Height / 4;
             }
             catch (Exception)
             {
