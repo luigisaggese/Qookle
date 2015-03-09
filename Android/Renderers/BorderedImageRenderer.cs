@@ -7,6 +7,7 @@ using Android.Graphics;
 using Xamarin.Forms.Platform.Android;
 using QookleApp.Android;
 using System.ComponentModel;
+using QookleApp.Views.Controls;
 using Xamarin.Forms.BorderedImage;
 
 [assembly: ExportRenderer(typeof(BorderedImage), typeof(BorderedImageRenderer))]

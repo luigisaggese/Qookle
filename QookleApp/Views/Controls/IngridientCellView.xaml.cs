@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using Xamarin.Forms;
 
-namespace QookleApp
+namespace QookleApp.Views.Controls
 {
 	public partial class SelectedIngredientCellView : ContentView
 	{
@@ -10,7 +9,7 @@ namespace QookleApp
 
 		public event ChangedEventHandler Changed;
 
-		public SelectedIngredientCellView (MainPage owner)
+		public SelectedIngredientCellView (MainPageView owner)
 		{
 			InitializeComponent ();
 			var tapGestureRecognizer = new TapGestureRecognizer ();

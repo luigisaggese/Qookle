@@ -1,9 +1,10 @@
 ﻿using System;
-using Xamarin.Auth;
 using Xamarin.Forms.Platform.iOS;
 using Xamarin.Forms;
 using QookleApp;
 using QookleApp.iOS;
+using QookleApp.Views;
+using Xamarin.Auth;
 
 [assembly: ExportRenderer (typeof (LoginFacebookPage), typeof (LoginFacebookPageRenderer))]
 

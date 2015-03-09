@@ -1,10 +1,33 @@
 ﻿using System;
+using QookleApp.Views;
 using Xamarin.Forms;
 
 namespace QookleApp
 {
-	public class App
+    public class App : Application
 	{
+        public App()
+        {
+            // The root page of your application
+            _mainPageView = new MainPageView();
+            NavigationPage.SetHasNavigationBar(_mainPageView, false);
+            MainPage = new NavigationPage(_mainPageView);
+            //MainPageView = new ContentPage
+            //{
+            //    Content = new StackLayout
+            //    {
+            //        VerticalOptions = LayoutOptions.Center,
+            //        Children = {
+            //            new Label {
+            //                XAlign = TextAlignment.Center,
+            //                Text = "Welcome to Xamarin Forms!"
+            //            }
+            //        }
+            //    }
+            //};
+        }
+
+
 		public static OAuthSettings OAuthSettings { 
 			get{ 
 				return new OAuthSettings (
@@ -15,12 +38,11 @@ namespace QookleApp
 			}
 		}
 
-		static MainPage _mainPage;
+		static MainPageView _mainPageView;
 		public static Page GetMainPage ()
 		{	
-			_mainPage = new MainPage ();
-			NavigationPage.SetHasNavigationBar(_mainPage, false);
-			return new NavigationPage(_mainPage);
+			NavigationPage.SetHasNavigationBar(_mainPageView, false);
+			return new NavigationPage(_mainPageView);
 		}
 
 		public static Action<string, string> SuccessfulLoginAction
@@ -28,9 +50,9 @@ namespace QookleApp
 			get {
 				return new Action<string,string> ((s,p) => {
                     
-					_mainPage.FacebookUserName = s;
-					_mainPage.FacebookPictureUri = p;
-					_mainPage.Navigation.PopAsync ();
+                    _mainPageView.FacebookUserName = s;
+                    _mainPageView.FacebookPictureUri = p;
+					_mainPageView.Navigation.PopAsync ();
 				});
 			}
 		}
@@ -42,9 +64,9 @@ namespace QookleApp
                 return new Action<string, string>((s, p) =>
                 {
 
-                    _mainPage.FacebookUserName = s;
-                    //_mainPage.FacebookPictureUri = p;
-                    _mainPage.Navigation.PopAsync();
+                    _mainPageView.FacebookUserName = s;
+                    _mainPageView.FacebookPictureUri = p;
+                    _mainPageView.Navigation.PopAsync();
                 });
             }
         }
@@ -53,7 +75,7 @@ namespace QookleApp
 		{
 			get {
 				return new Action (() => {
-					_mainPage.Navigation.PopAsync();
+					_mainPageView.Navigation.PopAsync();
 				});
 			}
 		}

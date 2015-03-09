@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace QookleApp
+﻿namespace QookleApp.Views
 {
 	public interface IViewModel<T> where T: BaseViewModel
 	{

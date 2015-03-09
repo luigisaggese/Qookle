@@ -2,6 +2,7 @@
 using System.Windows.Media;
 using Xamarin.Forms;
 using QookleApp;
+using QookleApp.Views.Controls;
 using Xamarin.Forms.BorderedImage;
 using Xamarin.Forms.Platform.WinPhone;
 

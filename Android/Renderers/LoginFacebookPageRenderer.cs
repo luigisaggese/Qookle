@@ -5,7 +5,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using QookleApp;
 using QookleApp.Android;
-using Android.Gms.Ads;
+using QookleApp.Views;
 
 [assembly: ExportRenderer (typeof (LoginFacebookPage), typeof (LoginFacebookPageRenderer))]
 namespace QookleApp.Android
